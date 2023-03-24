@@ -1,0 +1,197 @@
+﻿<div ng-controller="azuredevice_page_controller">
+
+                <div class="content_area_round_border" >
+
+                   
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-md-12 page_header_content_area text-center" >
+                                <h2>Device Monitor - Monaco Software Solutions</h2>
+                            </div>
+                       </div>
+                    </div>
+
+                    <br/>
+
+                    <div class="content_area_round_border">
+
+                        <div class="container-fluid">
+
+                            <div class="row">
+
+                                <div class="col-md-4 text-center" >
+
+                                        <img src="~/images/RaspberryPI.png" title="Raspberry PI B Device" style="width:150px; height:131px;box-shadow: 10px 10px 5px #ccc; -moz-box-shadow: 10px 10px 5px #ccc; -webkit-box-shadow: 10px 10px 5px #ccc;" />
+                                    
+                                </div>
+
+                                <div class="col-md-8">
+
+                                    <div class="container-fluid">
+
+                                        <div class="row">
+                                            <div class="col-md-12 text-left">
+                                                <h3>Device Control</h3>
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                          
+                                        <div class="col-md-4">
+
+
+                                            <div class="dropdown" style="margin-bottom:20px;">
+                                                <button class="btn btn-primary dropdown-toggle" type="button" id="select_device" name="select_device" data-toggle="dropdown">
+                                                    Voltage Device 
+                                                    <span class="caret"></span>
+                                                </button>
+                                                <ul id="select_device" name="select_device" class="dropdown-menu">
+                                                    <li><a href="#" ng-click="OnDeviceSelect($event)" >None Selected</a></li>
+                                                    <li ng-repeat="device in RegisteredDevices" ><a href="#" ng-click="OnDeviceSelect($event)" >{{device.deviceId}}</a></li>
+                                                </ul>
+                                            </div> 
+                                        </div>
+
+                                      
+                                        <div class="row" ng-show="Device_Selected == true && IoTHubConnected == true" >
+
+                                            
+                                            <div class="col-md-8">
+                                                <div class="container-fluid">
+
+                                                    <div class="row form-group">
+                                                        <div class="col-md-8">Device:&nbsp;{{Selected_Device}}</div>
+                                                    </div>
+
+
+                                                    <div class="row form-group">
+
+                                                        <div class="col-md-3 text-left">
+                                                            Status:
+
+                                                        </div>
+                                                        <div class="col-md-9">
+                                                            {{Device_Status_Description}}
+                                                        </div>
+                                                    </div>
+                                                    <div class="row form-group">
+                                                        <div class="col-md-3 text-left">
+                                                            Telemetry:
+
+                                                        </div>
+                                                        <div class="col-md-3 text-center">
+                                                            <input type="button" id="button_device_enable" name="button_device_enable" class="btn btn-default" value="Enable" ng-click="EnableTelememtry();" ng-disabled="( bolDeviceOnline == false  ||  (bolDeviceOnline == true && bolEnableTelemetry == true ) )" />
+                                                        </div>
+                                                        <div class="col-md-3 text-center">
+                                                            <input type="button" id="button_device_disable" name="button_device_disable" class="btn btn-default" value="Disable" ng-click="DisableTelememtry();" ng-disabled="(bolDeviceOnline == false ) || (bolDeviceOnline == true && bolEnableTelemetry == false )" />
+                                                        </div>
+                                                        <div class="col-md-3 text-center">
+
+                                                            <div ng-show="(bolDeviceOnline == false )"><img src="~/images/gray-led-circle.png" title="Device Offline" style="width:20px; height:20px;" /></div>
+                                                            <div ng-show="(bolDeviceOnline == true && bolEnableTelemetry == false )"><img src="~/images/red-led-circle.png" title="Device Online Telemetry Disabled" style="width:20px; height:20px;" /></div>
+                                                            <div ng-show="(bolDeviceOnline == true && bolEnableTelemetry == true )"><img src="~/images/green-led-circle.png" title="Device Online Telemetry Enabled" style="width:20px; height:20px;" /></div>
+
+                                                        </div>
+                                                    </div>
+                                                    <div class="row form-group">
+                                                        <div class="col-md-3 text-left">
+                                                            Telemetry Interval:
+
+                                                        </div>
+                                                        <div class="col-md-5 text-left">
+                                                            <input type="text" id="text_telemetry_interval" name="text_telemetry_interval" class="form-control" ng-model="TelemetryInterval"  maxlength="6" size="6" />
+
+                                                        </div>
+                                                        <div class="col-md-4 text-center">
+                                                            <input type="button" id="button_device_telemetry_interval" name="button_device_telemetry_interval" class="btn btn-default" value="Update" ng-click="UpdateTelemetryPeriod();" ng-disabled="!(bolDeviceOnline)" />
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+
+
+                                </div>
+
+
+                            </div>
+
+                        </div>
+
+                    </div>
+                    
+                    <br />
+
+                        <div class="content_area_round_border" ng-show="Device_Selected == true && IoTHubConnected == true" >
+
+                            
+
+                             <div class="container-fluid"  >
+
+                                 <div class="row">
+
+                                     <div class="col-md-12 text-center">
+                                         <h3>Device Voltage Telemetry</h3>
+                                     </div>
+
+
+                                 </div>
+
+
+                                 <div class="row form-group">
+                                     
+                                     <div class="col-md-4">
+
+                                         
+                                         <div class="dropdown">
+                                             <button class="btn btn-primary dropdown-toggle" type="button" id="select_device_refresh" name="select_device_refresh" data-toggle="dropdown">
+                                                 Telemetry Refresh Interval
+                                                 <span class="caret"></span>
+                                             </button>
+                                             <ul id="select_device_refresh_options" name="select_device_refresh_options" class="dropdown-menu">
+                                                 <li><a href="#">None</a></li>
+                                                 <li><a href="#">5 Sec</a></li>
+                                                 <li><a href="#">10 Sec</a></li>
+                                                 <li><a href="#">30 Sec</a></li>
+                                                 <li><a href="#">60 Sec</a></li>
+                                                 <li><a href="#">120 Sec</a></li>
+                                             </ul>
+                                         </div> 
+
+
+
+
+                                     </div>
+
+                                     <div class="col-md-2 text-left" >
+
+                                         <div ng-show="(  Selected_Device_Refresh_Interval != 'None' )"><img src="~/images/Processing.gif" title="Refresh Enabled" style="width:30px; height:30px;" /></div>
+
+
+                                     </div>
+
+                                    
+
+                                   </div>
+
+                                
+
+                                 <div class="row form-group">
+                                     <div class="col-md-12">
+
+                                         <div class="k-content">
+
+                                             <div id="device_telemetry_grid" class="content_mgmt_grid"></div>
+
+                                         </div>
+                                     </div>
+                                 </div>
+
+                        </div>
+
+                    </div>
+           </div>
+</div>

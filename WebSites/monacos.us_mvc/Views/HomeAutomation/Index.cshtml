@@ -1,0 +1,39 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<div ng-controller="homeautomation_page_controller">
+    <table style="width:98%;">
+        <tr>
+            <td align="center">
+
+                <div class="content_area_round_border">
+
+                    <div class="page_header_content_area" style="width:500px;">
+
+                        <h3>Home Automation - Monaco Software Solutions</h3>
+
+                    </div>
+
+
+                    <br />
+
+
+                    <div class="content_area_round_border">
+
+                        <!-- Server Side Home Automation Component -->
+
+                        @{
+                            Html.RenderAction("Index", "Home_Automation_Component");
+
+                        }
+
+                        <!-- Server Side Home Automation Component -->
+
+                    </div>
+                </div>
+            </td>
+        </tr>
+    </table>
+</div>

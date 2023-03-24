@@ -1,0 +1,21 @@
+﻿@model IEnumerable<monacos.us.dtos.ContentDTO>
+
+
+@foreach (var item in Model)
+{
+    <div class="page_content_area">
+        <table style="width:100%;">
+            <tr>
+                <td align="left">
+                    <div class="home_content_item_description">
+                        @Html.Raw(item.Description)
+                    </div><div class="home_content_item_post">Posted on&nbsp; @Html.Raw(item.Publish_Date)</div>
+                </td>
+                <td></td>
+            </tr>
+            
+            <tr><td colspan='2' align="left" ><span>@Html.Raw(item.ContentValue)</span></td></tr>
+        </table>
+    </div>
+}
+

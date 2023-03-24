@@ -1,0 +1,221 @@
+﻿@using monacos.us_mvc.HomeAutomation;
+
+@model DeviceInformation[]
+
+<script>
+
+    function UpdateSelectDropDowns() {
+
+        var collection;
+        var i;
+
+        collection = $('select.select_control_device_select');
+
+
+        for (i = 0; i < collection.length; i++) {
+
+            collection[i].focus();
+
+        }
+
+        return true;
+    }
+
+    function SelectDropDownOption(objSelect, Value) {
+
+        objSelect.selectedIndex = RoundToQ(Value, 10) / 10;
+
+        return true;
+
+    }
+
+    function SubmitControlDeviceDimCommand(objSelect, ControlDeviceID) {
+
+   
+        var ControlDeviceValue = $(objSelect).find('option:selected').val();
+
+        var ControlDeviceCommand = "Dim";
+
+           
+        AsyncCommandSubmitRefresh(ControlDeviceID, ControlDeviceCommand, ControlDeviceValue);
+
+
+        
+        return true;
+
+    }
+
+
+    function SubmitControlDeviceOnOffCommand(ControlDeviceID, ControlDeviceCommand, ControlDeviceValue )
+    {
+
+
+        AsyncCommandSubmitRefresh(ControlDeviceID, ControlDeviceCommand, ControlDeviceValue);
+
+        return false;
+
+    }
+
+
+    // This is an asychronous Post Back to the Server and not a POST which requires a page refresh
+    // Therefore we need to update the content of the Home Automation Container with the latest Partial View 
+    // Markup
+    function AsyncCommandSubmitRefresh(paramControlDeviceID, paramControlDeviceCommand, paramControlDeviceValue)
+    {
+        var HomeAutomationPartialViewMarkup = null;
+
+        var rootURI = angular.injector(['ng', 'monacos.us']).get('rootUrl');
+
+        $.ajax({
+            cache: false,
+            async: false,
+            url:  rootURI + '/Home_Automation_Component/Index',
+            type: 'post',
+            dataType: 'html',
+            data: { 'ControlDeviceID' : paramControlDeviceID,  'ControlDeviceCommand' : paramControlDeviceCommand, 'ControlDeviceValue' : paramControlDeviceValue  },
+            success: function(data)
+            {
+                
+                HomeAutomationPartialViewMarkup = data;
+
+                $("#home_automation_container").first().html( HomeAutomationPartialViewMarkup );
+
+                UpdateSelectDropDowns();
+
+
+            },
+            error : function( xhr, textStatus, errorThrow )
+            {
+
+                HomeAutomationPartialViewMarkup = "Home Automation Error: " + xhr.status + " " + xhr.statusText;
+
+                $("#home_automation_container").first().html( HomeAutomationPartialViewMarkup );
+
+            }
+
+
+        })
+
+      
+    }
+
+
+
+
+    function RoundToQ(X, Q) { return Q * Math.round(X / Q); }
+
+
+    $(document).ready(UpdateSelectDropDowns);
+
+
+</script>
+
+
+<div id="home_automation_container" name="home_automation_container">
+    
+
+
+        <table align="center" class="table_home_automation" >
+            <tr>
+                <td class='tableheader_home_automation' colSpan=7>
+                    Home Automation Device List
+                </td>
+            </tr>
+            <tr class='tablecolumn_home_automation'>
+                <td>Status</td>
+                <td>Location</td>
+                <td>Name</td>
+                <td>Address</td>
+                <td>Type</td>
+                <td>Last Update</td>
+                <td>Control</td>
+            </tr>
+            
+
+            @{
+
+                int ControlDeviceIndex = 0;
+
+            }
+
+
+            @foreach (DeviceInformation ControlDeviceInfoItem in Model)
+            {
+
+
+
+                if ((ControlDeviceIndex % 2) == 0)
+                {
+                    @:<tr class="tablerowodd_home_automation">
+                }
+                else
+                {
+                    @:<tr class="tableroweven_home_automation">
+                }
+
+                
+                    if ( @ControlDeviceInfoItem.Status.Contains("On") == true ) 
+                    {
+                        @:<td class="tablecellon_home_automation"><IMG src='@Url.Content("~/images/HomeAutomation/on.gif")' />On</td>
+                    } else if ( @ControlDeviceInfoItem.Status.Contains("Off") == true  )
+                    { 
+                        @:<td class="tablecelloff_home_automation"><IMG src='@Url.Content("~/images/HomeAutomation/off.gif")' />Off</td>
+                    } else if ( @ControlDeviceInfoItem.Status.Contains("Dim") == true  )
+                    {
+                        @:<td class="tablecelldim_home_automation"><IMG src='@Url.Content("~/images/HomeAutomation/dim.gif")' />Dim @ControlDeviceInfoItem.Value %</td>
+                    }
+                    else if (@ControlDeviceInfoItem.Status.Contains("No Status") == true)
+                    {
+                        @:<td class="tablecellunknown_home_automation" align="center">No Status</td>
+                    }
+                    else
+                    {
+                       @:<td class="tablecellunknown_home_automation"><IMG src='@Url.Content("~/images/HomeAutomation/unknown.gif")' />Unknown</td>
+                    }
+
+                <text>
+                    <td>@ControlDeviceInfoItem.Location</td>
+                    <td>@ControlDeviceInfoItem.Name</td>
+                    <td>@ControlDeviceInfoItem.Code</td>
+                    <td>@ControlDeviceInfoItem.Type</td>
+                    <td>@ControlDeviceInfoItem.LastUpdate</td>
+                </text>
+
+                if (ControlDeviceInfoItem.ReadOnly == true)
+                {
+                    @:<td>&nbsp</td>
+                }
+                else
+                {
+                    <text>
+                        <td>
+
+                            <a id='@("control_on_" + ControlDeviceInfoItem.ID )' name='@("control_on_" + ControlDeviceInfoItem.ID )' onclick='SubmitControlDeviceOnOffCommand( @ControlDeviceInfoItem.ID,  "On", 100 )' href="#">
+                                <img src='@Url.Content("~/images/HomeAutomation/deviceonbutton.gif")' />
+                            </a>
+
+                            
+                            <a id='@("control_off_" + ControlDeviceInfoItem.ID )' name='@("control_off_" + ControlDeviceInfoItem.ID )' onclick='SubmitControlDeviceOnOffCommand( @ControlDeviceInfoItem.ID, "Off", 0  )' href="#">
+                                    <img src='@Url.Content("~/images/HomeAutomation/deviceoffbutton.gif")' />
+                            </a>
+                            @if ( ControlDeviceInfoItem.Dimmable == true )
+                            {
+                              <select size="1" name='@("control_selectdim_" + ControlDeviceInfoItem.ID )' id='@("control_selectdim_" + ControlDeviceInfoItem.ID )' onfocus='SelectDropDownOption(this, @ControlDeviceInfoItem.Value );' onchange='SubmitControlDeviceDimCommand(this,  @ControlDeviceInfoItem.ID )' class="select_control_device_select"><option value="0">0%</option><option value="10">10%</option><option value="20">20%</option><option value="30">30%</option><option value="40">40%</option><option value="50">50%</option><option value="60">60%</option><option value="70">70%</option><option value="80">80%</option><option value="90">90%</option><option value="100">100%</option></select>
+                            }
+
+                        </td>
+                    </text>
+
+                }
+
+                @:</tr>
+
+                ControlDeviceIndex++;
+
+            }
+
+
+
+
+        </table>
+    </div>

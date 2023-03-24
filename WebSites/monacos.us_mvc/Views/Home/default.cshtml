@@ -1,0 +1,92 @@
+﻿@{
+    ViewBag.Title = "default";
+}
+
+@section Page_Header_Include
+{
+
+<script src="~/scripts/lib/highslide/highslide-full.js"></script>
+<link href="~/scripts/lib/highslide/highslide.css" rel="stylesheet" />
+
+
+<script type="text/javascript">
+
+        hs.graphicsDir = 'http://www.monacos.us/scripts/lib/highslide/graphics/';
+
+        hs.align = 'center';
+        hs.transitions = ['expand', 'crossfade'];
+        hs.outlineType = 'glossy-dark';
+        hs.wrapperClassName = 'dark';
+        hs.fadeInOut = true;
+        //hs.dimmingOpacity = 0.75;
+
+        // Add the controlbar
+        if (hs.addSlideshow) {
+            hs.addSlideshow({
+                //slideshowGroup: 'group1',
+                interval: 5000,
+                repeat: false,
+                useControls: true,
+                fixedControls: 'fit',
+                overlayOptions: {
+                    opacity: .6,
+                    position: 'bottom center',
+                    hideOnMouseOut: true
+                }
+            });
+
+            
+        }
+
+</script>
+
+}
+
+
+    <!-- Include Main Page Content -->
+       
+     <table style="width:98%;">
+    <tr><td align="center">
+
+    <div  class="content_area_round_border"  >
+   
+  <div  class="page_header_content_area" style="width:500px;"  >
+   
+        <h3>Home - Monaco Software Solutions</h3>
+  
+  </div>
+
+        <br />
+
+       
+       <!-- Server Side Content Component -->
+       
+            @{
+                Html.RenderAction("Index", "Home_Content_Component");
+
+            }
+
+            <!-- Server Side Content Component -->
+
+
+        </div>
+
+   
+   </td></tr></table>
+
+
+    <script>
+        (function (i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+                (i[r].q = i[r].q || []).push(arguments)
+            }, i[r].l = 1 * new Date(); a = s.createElement(o),
+            m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+        })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+
+        ga('create', 'UA-57769108-1', 'auto');
+        ga('send', 'pageview');
+
+    </script>
+
+
+

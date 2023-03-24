@@ -1,0 +1,161 @@
+﻿@{
+    ViewBag.Title = "Index";
+}
+<style type="text/css">
+
+   
+        .modal{
+
+            overflow-y: hidden;
+
+        }
+
+        .modal-dialog {
+
+           width: 60%
+
+         }
+
+        .modal-sm {
+
+          width: 60%;
+          height: 70%; 
+          border-radius: 4px;
+
+       }
+
+        .modal-lg {
+
+          width: 60%; 
+
+        }
+
+        .modal-header
+        {
+            background-color:black;
+
+        }
+
+        .modal-body
+        {
+            background-color:#3D3D3D;
+            color:white;
+           
+
+        }
+
+
+    #ContactWorkflowDialog {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        margin: auto;
+        width: 60%;
+        height: 70%;
+    }
+    
+
+    
+}
+
+
+    
+</style>
+
+
+
+<div ng-controller="contact_page_controller">
+
+    <table style="width:98%;">
+        <tr>
+            <td align="center">
+
+                <div class="content_area_round_border">
+
+                    <div class="page_header_content_area" style="width:500px;">
+
+                        <h3>Contact - Monaco Software Solutions</h3>
+
+                    </div>
+
+                    <br />
+
+
+                    <div class="page_content_area">
+
+
+
+                        <div style="width:70%" style="text-align:center;">
+                            Please use the following email to contact us regarding product questions and/or comments.
+                        </div>
+                        <br />
+                        <br />
+
+                        <section style="text-align:center;">
+                            <header>
+                                <h3>Email:</h3>
+                            </header>
+                            <p>
+                                <span><a href="mailto:monacos@monacos.us" class="Site_Link">Technical Support and/or Inquiries</a></span>
+
+                                <br />
+                                <br />
+
+                                <input type="button" class="btn btn-success" id="btnOpenContactWorkflow" value="Contact Form" ng-click="ContactDialogOne_Open()">
+
+
+                                <div class="modal fade modal-sm" id="ContactWorkflowDialog" name="ContactWorkflowDialog" role="dialog" >
+
+                                   
+                                </div>
+
+                            </p>
+
+                            
+                          
+
+                        </section>
+
+
+                    </div>
+
+
+
+                </div>
+            </td>
+        </tr>
+    </table>
+
+</div>
+
+
+@{
+
+    Html.RenderAction("Contact_Dlg_One", "Contact");
+
+}
+
+@{
+
+    Html.RenderAction("Contact_Dlg_Two", "Contact");
+
+}
+
+@{
+
+    Html.RenderAction("Contact_Dlg_Three", "Contact");
+
+}
+
+
+
+
+
+
+
+
+
+
+

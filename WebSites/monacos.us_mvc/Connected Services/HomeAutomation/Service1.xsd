@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://domain2008.monacos.home:5000/HomeAutomationService/Service.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/HomeAutomationService" />
+  <xs:element name="SetServiceSpeechNotification">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="bolState" type="xs:boolean" />
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/HomeAutomationService" minOccurs="0" name="ResultData" nillable="true" type="q1:ResultInformation" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SetServiceSpeechNotificationResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/HomeAutomationService" minOccurs="0" name="ResultData" nillable="true" type="q2:ResultInformation" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateControlDeviceState">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="intControlDeviceID" type="xs:int" />
+        <xs:element minOccurs="0" name="strControlDeviceCommand" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="dblControlDeviceValue" type="xs:double" />
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/HomeAutomationService" minOccurs="0" name="obDeviceInformationList" nillable="true" type="q3:ArrayOfDeviceInformation" />
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/HomeAutomationService" minOccurs="0" name="ResultData" nillable="true" type="q4:ResultInformation" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateControlDeviceStateResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/HomeAutomationService" minOccurs="0" name="obDeviceInformationList" nillable="true" type="q5:ArrayOfDeviceInformation" />
+        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/HomeAutomationService" minOccurs="0" name="ResultData" nillable="true" type="q6:ResultInformation" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetControlDeviceStates">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/HomeAutomationService" minOccurs="0" name="obDeviceInformationList" nillable="true" type="q7:ArrayOfDeviceInformation" />
+        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/HomeAutomationService" minOccurs="0" name="ResultData" nillable="true" type="q8:ResultInformation" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetControlDeviceStatesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/HomeAutomationService" minOccurs="0" name="obDeviceInformationList" nillable="true" type="q9:ArrayOfDeviceInformation" />
+        <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/HomeAutomationService" minOccurs="0" name="ResultData" nillable="true" type="q10:ResultInformation" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="InitializeService">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/HomeAutomationService" minOccurs="0" name="obDeviceInformationList" nillable="true" type="q11:ArrayOfDeviceInformation" />
+        <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/HomeAutomationService" minOccurs="0" name="ResultData" nillable="true" type="q12:ResultInformation" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="InitializeServiceResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/HomeAutomationService" minOccurs="0" name="obDeviceInformationList" nillable="true" type="q13:ArrayOfDeviceInformation" />
+        <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/HomeAutomationService" minOccurs="0" name="ResultData" nillable="true" type="q14:ResultInformation" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Ping">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PingResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="PingResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

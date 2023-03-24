@@ -1,0 +1,89 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+@section Page_Header_Include
+{
+
+    
+
+
+}
+
+
+<table style="width:98%;">
+    <tr>
+        <td align="center">
+
+
+            <div class="content_area_round_border">
+                <div class="page_header_content_area" style="width:500px;">
+
+                    <h3>Login - Monaco Software Solutions</h3>
+
+                </div>
+
+                <div class="page_content_area" style="height:500px;">
+
+                    <div ng-controller="login_page_controller">
+
+                        <div style="height:100%; width:500px;">
+
+                            <form action="" method="POST" name="form_login" >
+
+
+                                <div class="form-group">
+
+                                    <label class="control-label col-md-12" for="input_username">User Name:</label>
+                                    <div class="col-md-12">
+
+                                        <input type="text" id="input_username" name="input_username" ng-model="UserName" required class="form-control" placeholder="Enter user name" />
+                                        <span class="Site_InputField_Error" ng-show="form_login.input_username.$touched && form_login.input_username.$error.required">Required!</span>
+                                    </div>
+
+                                </div>
+
+                                <div class="form-group">
+
+                                    <label class="control-label col-md-12" for="input_password">Password:</label>
+
+                                    <div class="col-md-12">
+
+                                        <input type="password" id="input_password" name="input_password" ng-model="Password" required class="form-control" placeholder="Enter user password" />
+                                        <span class="Site_InputField_Error" ng-show="form_login.input_password.$touched && form_login.input_password.$error.required">Required!</span>
+
+                                    </div>
+
+                                </div>
+
+                              
+
+                                    <table>
+
+                                        <tr><td></td></tr>
+                                        <tr>
+
+                                            <td align="center" style="border-spacing:30px;"><input type="button" id="button_login_submit" ng-click="LoginUser()"  class="btn btn-default btn-success" value="Login" ng-disabled="form_login.$invalid" /></td>
+                                        </tr>                                        
+                                            
+                                    </table>
+                              
+                                        <input id="remote_ip" name="remote_ip" type="hidden" value='@Request.ServerVariables["REMOTE_HOST"]'>
+
+                            </form>
+                        </div>
+
+                    </div>
+
+
+
+                </div>
+
+            </div>
+
+        </td>
+    </tr>
+</table>
+
+

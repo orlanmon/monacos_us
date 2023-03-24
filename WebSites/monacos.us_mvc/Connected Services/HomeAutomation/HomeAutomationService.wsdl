@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="HomeAutomationService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://domain2008.monacos.home:5000/HomeAutomationService/Service.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://domain2008.monacos.home:5000/HomeAutomationService/Service.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://domain2008.monacos.home:5000/HomeAutomationService/Service.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/HomeAutomationService" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IHomeAutomationService_SetServiceSpeechNotification_InputMessage">
+    <wsdl:part name="parameters" element="tns:SetServiceSpeechNotification" />
+  </wsdl:message>
+  <wsdl:message name="IHomeAutomationService_SetServiceSpeechNotification_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SetServiceSpeechNotificationResponse" />
+  </wsdl:message>
+  <wsdl:message name="IHomeAutomationService_UpdateControlDeviceState_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateControlDeviceState" />
+  </wsdl:message>
+  <wsdl:message name="IHomeAutomationService_UpdateControlDeviceState_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateControlDeviceStateResponse" />
+  </wsdl:message>
+  <wsdl:message name="IHomeAutomationService_GetControlDeviceStates_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetControlDeviceStates" />
+  </wsdl:message>
+  <wsdl:message name="IHomeAutomationService_GetControlDeviceStates_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetControlDeviceStatesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IHomeAutomationService_InitializeService_InputMessage">
+    <wsdl:part name="parameters" element="tns:InitializeService" />
+  </wsdl:message>
+  <wsdl:message name="IHomeAutomationService_InitializeService_OutputMessage">
+    <wsdl:part name="parameters" element="tns:InitializeServiceResponse" />
+  </wsdl:message>
+  <wsdl:message name="IHomeAutomationService_Ping_InputMessage">
+    <wsdl:part name="parameters" element="tns:Ping" />
+  </wsdl:message>
+  <wsdl:message name="IHomeAutomationService_Ping_OutputMessage">
+    <wsdl:part name="parameters" element="tns:PingResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IHomeAutomationService">
+    <wsdl:operation name="SetServiceSpeechNotification">
+      <wsdl:input wsaw:Action="http://tempuri.org/IHomeAutomationService/SetServiceSpeechNotification" message="tns:IHomeAutomationService_SetServiceSpeechNotification_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IHomeAutomationService/SetServiceSpeechNotificationResponse" message="tns:IHomeAutomationService_SetServiceSpeechNotification_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateControlDeviceState">
+      <wsdl:input wsaw:Action="http://tempuri.org/IHomeAutomationService/UpdateControlDeviceState" message="tns:IHomeAutomationService_UpdateControlDeviceState_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IHomeAutomationService/UpdateControlDeviceStateResponse" message="tns:IHomeAutomationService_UpdateControlDeviceState_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetControlDeviceStates">
+      <wsdl:input wsaw:Action="http://tempuri.org/IHomeAutomationService/GetControlDeviceStates" message="tns:IHomeAutomationService_GetControlDeviceStates_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IHomeAutomationService/GetControlDeviceStatesResponse" message="tns:IHomeAutomationService_GetControlDeviceStates_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="InitializeService">
+      <wsdl:input wsaw:Action="http://tempuri.org/IHomeAutomationService/InitializeService" message="tns:IHomeAutomationService_InitializeService_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IHomeAutomationService/InitializeServiceResponse" message="tns:IHomeAutomationService_InitializeService_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Ping">
+      <wsdl:input wsaw:Action="http://tempuri.org/IHomeAutomationService/Ping" message="tns:IHomeAutomationService_Ping_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IHomeAutomationService/PingResponse" message="tns:IHomeAutomationService_Ping_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="HomeAutomationService" type="tns:IHomeAutomationService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="SetServiceSpeechNotification">
+      <soap:operation soapAction="http://tempuri.org/IHomeAutomationService/SetServiceSpeechNotification" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateControlDeviceState">
+      <soap:operation soapAction="http://tempuri.org/IHomeAutomationService/UpdateControlDeviceState" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetControlDeviceStates">
+      <soap:operation soapAction="http://tempuri.org/IHomeAutomationService/GetControlDeviceStates" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InitializeService">
+      <soap:operation soapAction="http://tempuri.org/IHomeAutomationService/InitializeService" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Ping">
+      <soap:operation soapAction="http://tempuri.org/IHomeAutomationService/Ping" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="HomeAutomationService">
+    <wsdl:port name="HomeAutomationService" binding="tns:HomeAutomationService">
+      <soap:address location="http://192.168.0.100:5000/HomeAutomationService/Service.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

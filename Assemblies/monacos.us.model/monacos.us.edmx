@@ -1,0 +1,652 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="monacos.us.Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="alexa_skill_account">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="First_Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Last_Name" Type="nvarchar" MaxLength="500" Nullable="false" />
+          <Property Name="EmailAddress" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="creation_date" Type="datetime" Nullable="false" />
+          <Property Name="update_date" Type="datetime" />
+          <Property Name="amazon_alexa_skill_name" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="delete" Type="bit" />
+        </EntityType>
+        <EntityType Name="alexa_skill_authorization">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="amazon_alexa_client_id" Type="nvarchar" MaxLength="4000" Nullable="false" />
+          <Property Name="amazon_alexa_state" Type="nvarchar" MaxLength="4000" Nullable="false" />
+          <Property Name="amazon_alexa_skill_access_token" Type="nvarchar" MaxLength="1000" Nullable="false" />
+          <Property Name="amazon_alexa_user_id" Type="nvarchar" MaxLength="4000" />
+          <Property Name="creation_date" Type="datetime" Nullable="false" />
+          <Property Name="update_date" Type="datetime" />
+          <Property Name="alexa_skill_account_id" Type="int" Nullable="false" />
+          <Property Name="amazon_alexa_skill_scope" Type="nvarchar" MaxLength="4000" />
+          <Property Name="amazon_alexa_auth_redirect_uri" Type="text" />
+          <Property Name="delete" Type="bit" />
+        </EntityType>
+        <EntityType Name="alexa_skill_configuration_data">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Value" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="alexa_skill_account_id" Type="int" Nullable="false" />
+          <Property Name="delete" Type="bit" />
+          <Property Name="creation_date" Type="datetime" Nullable="false" />
+          <Property Name="update_date" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Content">
+          <Key>
+            <PropertyRef Name="Content_ID" />
+          </Key>
+          <Property Name="Content_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ContentArea_ID" Type="int" Nullable="false" />
+          <Property Name="Description" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="ContentValue" Type="text" Nullable="false" />
+          <Property Name="Create_Date" Type="datetime" Nullable="false" />
+          <Property Name="Publish_Date" Type="datetime" Nullable="false" />
+          <Property Name="Expiration_Date" Type="datetime" />
+          <Property Name="Active" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ContentArea">
+          <Key>
+            <PropertyRef Name="ContentArea_ID" />
+          </Key>
+          <Property Name="ContentArea_ID" Type="int" Nullable="false" />
+          <Property Name="ContentArea_Description" Type="varchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityType Name="GPS_Tracking">
+          <Key>
+            <PropertyRef Name="GPS_TrackingID" />
+          </Key>
+          <Property Name="GPS_TrackingID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Device_ID" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Latitude" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="Longitude" Type="nvarchar" MaxLength="200" Nullable="false" />
+          <Property Name="Entry_Date" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Navigation_Items">
+          <Key>
+            <PropertyRef Name="Navigation_Item_ID" />
+          </Key>
+          <Property Name="Navigation_Item_ID" Type="int" Nullable="false" />
+          <Property Name="Navigation_Item_Caption" Type="varchar" MaxLength="200" />
+          <Property Name="Navigation_Item_Image" Type="varchar" MaxLength="500" />
+          <Property Name="Navigation_Item_URI" Type="varchar" MaxLength="500" />
+          <Property Name="Parent_Navigation_Item_ID" Type="int" />
+          <Property Name="Navigation_Item_Level_Sort_Order" Type="int" Nullable="false" />
+          <Property Name="Navigation_Type_ID" Type="int" Nullable="false" />
+          <Property Name="Navigation_Item_URI_Target" Type="char" MaxLength="10" />
+          <Property Name="Navigation_Item_TreeView_Visible" Type="bit" />
+          <Property Name="Navigation_Item_Menu_Visible" Type="bit" />
+          <Property Name="Navigation_Item_SiteMap_Caption" Type="varchar" MaxLength="200" />
+        </EntityType>
+        <EntityType Name="Navigation_Types">
+          <Key>
+            <PropertyRef Name="Navigation_Type_ID" />
+          </Key>
+          <Property Name="Navigation_Type_ID" Type="int" Nullable="false" />
+          <Property Name="Navigation_Type_Name" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Navigation_Type_Description" Type="varchar" MaxLength="400" />
+        </EntityType>
+        <EntityType Name="NavigationItem_ResourceRole_Xref">
+          <Key>
+            <PropertyRef Name="Navigation_Role_Xref_ID" />
+          </Key>
+          <Property Name="Resource_Role_ID" Type="int" Nullable="false" />
+          <Property Name="Navigation_Item_ID" Type="int" Nullable="false" />
+          <Property Name="Navigation_Role_Xref_ID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Resource">
+          <Key>
+            <PropertyRef Name="Resource_ID" />
+          </Key>
+          <Property Name="Resource_ID" Type="int" Nullable="false" />
+          <Property Name="Resource_Name" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Resource_Description" Type="varchar" MaxLength="400" />
+        </EntityType>
+        <EntityType Name="Resource_Roles">
+          <Key>
+            <PropertyRef Name="Resource_Role_ID" />
+          </Key>
+          <Property Name="Resource_Role_ID" Type="int" Nullable="false" />
+          <Property Name="Resource_ID" Type="int" Nullable="false" />
+          <Property Name="Role_Name" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Role_Description" Type="varchar" MaxLength="400" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="User_Role_Xref">
+          <Key>
+            <PropertyRef Name="User_ID" />
+            <PropertyRef Name="Resource_Role_ID" />
+          </Key>
+          <Property Name="User_ID" Type="int" Nullable="false" />
+          <Property Name="Resource_Role_ID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Users">
+          <Key>
+            <PropertyRef Name="User_ID" />
+          </Key>
+          <Property Name="User_ID" Type="int" Nullable="false" />
+          <Property Name="User_Login" Type="char" MaxLength="20" Nullable="false" />
+          <Property Name="User_Password" Type="char" MaxLength="20" Nullable="false" />
+        </EntityType>
+        <EntityType Name="WebSessionInformation">
+          <Key>
+            <PropertyRef Name="WebSessionInformationID" />
+          </Key>
+          <Property Name="WebSessionInformationID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="WebSessionID" Type="int" Nullable="false" />
+          <Property Name="WebSessionServerVariableName" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="WebSessionServerVariableValue" Type="varchar" MaxLength="100" />
+          <Property Name="Entry_DateTime" Type="datetime" />
+        </EntityType>
+        <EntityType Name="WebSessions">
+          <Key>
+            <PropertyRef Name="WebSessionID" />
+          </Key>
+          <Property Name="WebSessionID" Type="int" Nullable="false" />
+          <Property Name="SessionID" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="Entry_DateTime" Type="datetime" />
+        </EntityType>
+        <Association Name="FK_alexa_skill_authentication_alexa_skill_account_data1">
+          <End Role="alexa_skill_account" Type="Self.alexa_skill_account" Multiplicity="1" />
+          <End Role="alexa_skill_authorization" Type="Self.alexa_skill_authorization" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="alexa_skill_account">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="alexa_skill_authorization">
+              <PropertyRef Name="alexa_skill_account_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_alexa_skill_configuration_data_alexa_skill_account_data">
+          <End Role="alexa_skill_account" Type="Self.alexa_skill_account" Multiplicity="1" />
+          <End Role="alexa_skill_configuration_data" Type="Self.alexa_skill_configuration_data" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="alexa_skill_account">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="alexa_skill_configuration_data">
+              <PropertyRef Name="alexa_skill_account_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="monacosusModelStoreContainer">
+          <EntitySet Name="alexa_skill_account" EntityType="Self.alexa_skill_account" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="alexa_skill_authorization" EntityType="Self.alexa_skill_authorization" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="alexa_skill_configuration_data" EntityType="Self.alexa_skill_configuration_data" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Content" EntityType="Self.Content" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ContentArea" EntityType="Self.ContentArea" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="GPS_Tracking" EntityType="Self.GPS_Tracking" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Navigation_Items" EntityType="Self.Navigation_Items" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Navigation_Types" EntityType="Self.Navigation_Types" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="NavigationItem_ResourceRole_Xref" EntityType="Self.NavigationItem_ResourceRole_Xref" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Resource" EntityType="Self.Resource" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Resource_Roles" EntityType="Self.Resource_Roles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="User_Role_Xref" EntityType="Self.User_Role_Xref" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="WebSessionInformation" EntityType="Self.WebSessionInformation" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="WebSessions" EntityType="Self.WebSessions" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_alexa_skill_authentication_alexa_skill_account_data1" Association="Self.FK_alexa_skill_authentication_alexa_skill_account_data1">
+            <End Role="alexa_skill_account" EntitySet="alexa_skill_account" />
+            <End Role="alexa_skill_authorization" EntitySet="alexa_skill_authorization" />
+          </AssociationSet>
+          <AssociationSet Name="FK_alexa_skill_configuration_data_alexa_skill_account_data" Association="Self.FK_alexa_skill_configuration_data_alexa_skill_account_data">
+            <End Role="alexa_skill_account" EntitySet="alexa_skill_account" />
+            <End Role="alexa_skill_configuration_data" EntitySet="alexa_skill_configuration_data" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="monacos.us.Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Content">
+          <Key>
+            <PropertyRef Name="Content_ID" />
+          </Key>
+          <Property Name="Content_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ContentArea_ID" Type="Int32" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ContentValue" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Create_Date" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Publish_Date" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Expiration_Date" Type="DateTime" Precision="3" />
+          <Property Name="Active" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ContentArea">
+          <Key>
+            <PropertyRef Name="ContentArea_ID" />
+          </Key>
+          <Property Name="ContentArea_ID" Type="Int32" Nullable="false" />
+          <Property Name="ContentArea_Description" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Navigation_Items">
+          <Key>
+            <PropertyRef Name="Navigation_Item_ID" />
+          </Key>
+          <Property Name="Navigation_Item_ID" Type="Int32" Nullable="false" />
+          <Property Name="Navigation_Item_Caption" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="Navigation_Item_Image" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="Navigation_Item_URI" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="Parent_Navigation_Item_ID" Type="Int32" />
+          <Property Name="Navigation_Item_Level_Sort_Order" Type="Int32" Nullable="false" />
+          <Property Name="Navigation_Type_ID" Type="Int32" Nullable="false" />
+          <Property Name="Navigation_Item_URI_Target" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
+          <Property Name="Navigation_Item_TreeView_Visible" Type="Boolean" />
+          <Property Name="Navigation_Item_Menu_Visible" Type="Boolean" />
+          <Property Name="Navigation_Item_SiteMap_Caption" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Navigation_Types">
+          <Key>
+            <PropertyRef Name="Navigation_Type_ID" />
+          </Key>
+          <Property Name="Navigation_Type_ID" Type="Int32" Nullable="false" />
+          <Property Name="Navigation_Type_Name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Navigation_Type_Description" Type="String" MaxLength="400" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="NavigationItem_ResourceRole_Xref">
+          <Key>
+            <PropertyRef Name="Navigation_Role_Xref_ID" />
+          </Key>
+          <Property Name="Resource_Role_ID" Type="Int32" Nullable="false" />
+          <Property Name="Navigation_Item_ID" Type="Int32" Nullable="false" />
+          <Property Name="Navigation_Role_Xref_ID" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Resource">
+          <Key>
+            <PropertyRef Name="Resource_ID" />
+          </Key>
+          <Property Name="Resource_ID" Type="Int32" Nullable="false" />
+          <Property Name="Resource_Name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Resource_Description" Type="String" MaxLength="400" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Resource_Roles">
+          <Key>
+            <PropertyRef Name="Resource_Role_ID" />
+          </Key>
+          <Property Name="Resource_Role_ID" Type="Int32" Nullable="false" />
+          <Property Name="Resource_ID" Type="Int32" Nullable="false" />
+          <Property Name="Role_Name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Role_Description" Type="String" MaxLength="400" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="sysdiagram">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="User_Role_Xref">
+          <Key>
+            <PropertyRef Name="User_ID" />
+            <PropertyRef Name="Resource_Role_ID" />
+          </Key>
+          <Property Name="User_ID" Type="Int32" Nullable="false" />
+          <Property Name="Resource_Role_ID" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="User_ID" />
+          </Key>
+          <Property Name="User_ID" Type="Int32" Nullable="false" />
+          <Property Name="User_Login" Type="String" MaxLength="20" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="User_Password" Type="String" MaxLength="20" FixedLength="true" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="Entities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Contents" EntityType="Self.Content" />
+          <EntitySet Name="ContentAreas" EntityType="Self.ContentArea" />
+          <EntitySet Name="Navigation_Items" EntityType="Self.Navigation_Items" />
+          <EntitySet Name="Navigation_Types" EntityType="Self.Navigation_Types" />
+          <EntitySet Name="NavigationItem_ResourceRole_Xref" EntityType="Self.NavigationItem_ResourceRole_Xref" />
+          <EntitySet Name="Resources" EntityType="Self.Resource" />
+          <EntitySet Name="Resource_Roles" EntityType="Self.Resource_Roles" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+          <EntitySet Name="User_Role_Xref" EntityType="Self.User_Role_Xref" />
+          <EntitySet Name="Users" EntityType="Self.User" />
+          <EntitySet Name="alexa_skill_account" EntityType="monacos.us.Model.alexa_skill_account" />
+          <EntitySet Name="alexa_skill_authorization" EntityType="monacos.us.Model.alexa_skill_authorization" />
+          <EntitySet Name="alexa_skill_configuration_data" EntityType="monacos.us.Model.alexa_skill_configuration_data" />
+          <EntitySet Name="GPS_Tracking" EntityType="monacos.us.Model.GPS_Tracking" />
+          <AssociationSet Name="FK_alexa_skill_authentication_alexa_skill_account_data1" Association="monacos.us.Model.FK_alexa_skill_authentication_alexa_skill_account_data1">
+            <End Role="alexa_skill_account" EntitySet="alexa_skill_account" />
+            <End Role="alexa_skill_authorization" EntitySet="alexa_skill_authorization" />
+          </AssociationSet>
+          <AssociationSet Name="FK_alexa_skill_configuration_data_alexa_skill_account_data" Association="monacos.us.Model.FK_alexa_skill_configuration_data_alexa_skill_account_data">
+            <End Role="alexa_skill_account" EntitySet="alexa_skill_account" />
+            <End Role="alexa_skill_configuration_data" EntitySet="alexa_skill_configuration_data" />
+          </AssociationSet>
+          <EntitySet Name="WebSessionInformations" EntityType="monacos.us.Model.WebSessionInformation" />
+          <EntitySet Name="WebSessions" EntityType="monacos.us.Model.WebSession" />
+        </EntityContainer>
+        <EntityType Name="alexa_skill_account">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="First_Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Last_Name" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="EmailAddress" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="creation_date" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="update_date" Type="DateTime" Precision="3" />
+          <Property Name="amazon_alexa_skill_name" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="delete" Type="Boolean" />
+          <NavigationProperty Name="alexa_skill_authorization" Relationship="monacos.us.Model.FK_alexa_skill_authentication_alexa_skill_account_data1" FromRole="alexa_skill_account" ToRole="alexa_skill_authorization" />
+          <NavigationProperty Name="alexa_skill_configuration_data" Relationship="monacos.us.Model.FK_alexa_skill_configuration_data_alexa_skill_account_data" FromRole="alexa_skill_account" ToRole="alexa_skill_configuration_data" />
+        </EntityType>
+        <EntityType Name="alexa_skill_authorization">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="amazon_alexa_client_id" Type="String" Nullable="false" MaxLength="4000" FixedLength="false" Unicode="true" />
+          <Property Name="amazon_alexa_state" Type="String" Nullable="false" MaxLength="4000" FixedLength="false" Unicode="true" />
+          <Property Name="amazon_alexa_skill_access_token" Type="String" Nullable="false" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="amazon_alexa_user_id" Type="String" MaxLength="4000" FixedLength="false" Unicode="true" />
+          <Property Name="creation_date" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="update_date" Type="DateTime" Precision="3" />
+          <Property Name="alexa_skill_account_id" Type="Int32" Nullable="false" />
+          <Property Name="amazon_alexa_skill_scope" Type="String" MaxLength="4000" FixedLength="false" Unicode="true" />
+          <Property Name="amazon_alexa_auth_redirect_uri" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="delete" Type="Boolean" />
+          <NavigationProperty Name="alexa_skill_account" Relationship="monacos.us.Model.FK_alexa_skill_authentication_alexa_skill_account_data1" FromRole="alexa_skill_authorization" ToRole="alexa_skill_account" />
+        </EntityType>
+        <EntityType Name="alexa_skill_configuration_data">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Value" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="alexa_skill_account_id" Type="Int32" Nullable="false" />
+          <Property Name="delete" Type="Boolean" />
+          <Property Name="creation_date" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="update_date" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="alexa_skill_account" Relationship="monacos.us.Model.FK_alexa_skill_configuration_data_alexa_skill_account_data" FromRole="alexa_skill_configuration_data" ToRole="alexa_skill_account" />
+        </EntityType>
+        <EntityType Name="GPS_Tracking">
+          <Key>
+            <PropertyRef Name="GPS_TrackingID" />
+          </Key>
+          <Property Name="GPS_TrackingID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Device_ID" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Latitude" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="Longitude" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="Entry_Date" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
+        <Association Name="FK_alexa_skill_authentication_alexa_skill_account_data1">
+          <End Type="monacos.us.Model.alexa_skill_account" Role="alexa_skill_account" Multiplicity="1" />
+          <End Type="monacos.us.Model.alexa_skill_authorization" Role="alexa_skill_authorization" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="alexa_skill_account">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="alexa_skill_authorization">
+              <PropertyRef Name="alexa_skill_account_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_alexa_skill_configuration_data_alexa_skill_account_data">
+          <End Type="monacos.us.Model.alexa_skill_account" Role="alexa_skill_account" Multiplicity="1" />
+          <End Type="monacos.us.Model.alexa_skill_configuration_data" Role="alexa_skill_configuration_data" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="alexa_skill_account">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="alexa_skill_configuration_data">
+              <PropertyRef Name="alexa_skill_account_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="WebSessionInformation">
+          <Key>
+            <PropertyRef Name="WebSessionInformationID" />
+          </Key>
+          <Property Name="WebSessionInformationID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="WebSessionID" Type="Int32" Nullable="false" />
+          <Property Name="WebSessionServerVariableName" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="WebSessionServerVariableValue" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Entry_DateTime" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="WebSession">
+          <Key>
+            <PropertyRef Name="WebSessionID" />
+          </Key>
+          <Property Name="WebSessionID" Type="Int32" Nullable="false" />
+          <Property Name="SessionID" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="Entry_DateTime" Type="DateTime" Precision="3" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="monacosusModelStoreContainer" CdmEntityContainer="Entities">
+          <EntitySetMapping Name="Contents">
+            <EntityTypeMapping TypeName="monacos.us.Model.Content">
+              <MappingFragment StoreEntitySet="Content">
+                <ScalarProperty Name="Content_ID" ColumnName="Content_ID" />
+                <ScalarProperty Name="ContentArea_ID" ColumnName="ContentArea_ID" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="ContentValue" ColumnName="ContentValue" />
+                <ScalarProperty Name="Create_Date" ColumnName="Create_Date" />
+                <ScalarProperty Name="Publish_Date" ColumnName="Publish_Date" />
+                <ScalarProperty Name="Expiration_Date" ColumnName="Expiration_Date" />
+                <ScalarProperty Name="Active" ColumnName="Active" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ContentAreas">
+            <EntityTypeMapping TypeName="monacos.us.Model.ContentArea">
+              <MappingFragment StoreEntitySet="ContentArea">
+                <ScalarProperty Name="ContentArea_ID" ColumnName="ContentArea_ID" />
+                <ScalarProperty Name="ContentArea_Description" ColumnName="ContentArea_Description" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Navigation_Items">
+            <EntityTypeMapping TypeName="monacos.us.Model.Navigation_Items">
+              <MappingFragment StoreEntitySet="Navigation_Items">
+                <ScalarProperty Name="Navigation_Item_ID" ColumnName="Navigation_Item_ID" />
+                <ScalarProperty Name="Navigation_Item_Caption" ColumnName="Navigation_Item_Caption" />
+                <ScalarProperty Name="Navigation_Item_Image" ColumnName="Navigation_Item_Image" />
+                <ScalarProperty Name="Navigation_Item_URI" ColumnName="Navigation_Item_URI" />
+                <ScalarProperty Name="Parent_Navigation_Item_ID" ColumnName="Parent_Navigation_Item_ID" />
+                <ScalarProperty Name="Navigation_Item_Level_Sort_Order" ColumnName="Navigation_Item_Level_Sort_Order" />
+                <ScalarProperty Name="Navigation_Type_ID" ColumnName="Navigation_Type_ID" />
+                <ScalarProperty Name="Navigation_Item_URI_Target" ColumnName="Navigation_Item_URI_Target" />
+                <ScalarProperty Name="Navigation_Item_TreeView_Visible" ColumnName="Navigation_Item_TreeView_Visible" />
+                <ScalarProperty Name="Navigation_Item_Menu_Visible" ColumnName="Navigation_Item_Menu_Visible" />
+                <ScalarProperty Name="Navigation_Item_SiteMap_Caption" ColumnName="Navigation_Item_SiteMap_Caption" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Navigation_Types">
+            <EntityTypeMapping TypeName="monacos.us.Model.Navigation_Types">
+              <MappingFragment StoreEntitySet="Navigation_Types">
+                <ScalarProperty Name="Navigation_Type_ID" ColumnName="Navigation_Type_ID" />
+                <ScalarProperty Name="Navigation_Type_Name" ColumnName="Navigation_Type_Name" />
+                <ScalarProperty Name="Navigation_Type_Description" ColumnName="Navigation_Type_Description" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="NavigationItem_ResourceRole_Xref">
+            <EntityTypeMapping TypeName="monacos.us.Model.NavigationItem_ResourceRole_Xref">
+              <MappingFragment StoreEntitySet="NavigationItem_ResourceRole_Xref">
+                <ScalarProperty Name="Resource_Role_ID" ColumnName="Resource_Role_ID" />
+                <ScalarProperty Name="Navigation_Item_ID" ColumnName="Navigation_Item_ID" />
+                <ScalarProperty Name="Navigation_Role_Xref_ID" ColumnName="Navigation_Role_Xref_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Resources">
+            <EntityTypeMapping TypeName="monacos.us.Model.Resource">
+              <MappingFragment StoreEntitySet="Resource">
+                <ScalarProperty Name="Resource_ID" ColumnName="Resource_ID" />
+                <ScalarProperty Name="Resource_Name" ColumnName="Resource_Name" />
+                <ScalarProperty Name="Resource_Description" ColumnName="Resource_Description" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Resource_Roles">
+            <EntityTypeMapping TypeName="monacos.us.Model.Resource_Roles">
+              <MappingFragment StoreEntitySet="Resource_Roles">
+                <ScalarProperty Name="Resource_Role_ID" ColumnName="Resource_Role_ID" />
+                <ScalarProperty Name="Resource_ID" ColumnName="Resource_ID" />
+                <ScalarProperty Name="Role_Name" ColumnName="Role_Name" />
+                <ScalarProperty Name="Role_Description" ColumnName="Role_Description" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="monacos.us.Model.sysdiagram">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="User_Role_Xref">
+            <EntityTypeMapping TypeName="monacos.us.Model.User_Role_Xref">
+              <MappingFragment StoreEntitySet="User_Role_Xref">
+                <ScalarProperty Name="User_ID" ColumnName="User_ID" />
+                <ScalarProperty Name="Resource_Role_ID" ColumnName="Resource_Role_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Users">
+            <EntityTypeMapping TypeName="monacos.us.Model.User">
+              <MappingFragment StoreEntitySet="Users">
+                <ScalarProperty Name="User_ID" ColumnName="User_ID" />
+                <ScalarProperty Name="User_Login" ColumnName="User_Login" />
+                <ScalarProperty Name="User_Password" ColumnName="User_Password" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="alexa_skill_account">
+            <EntityTypeMapping TypeName="monacos.us.Model.alexa_skill_account">
+              <MappingFragment StoreEntitySet="alexa_skill_account">
+                <ScalarProperty Name="delete" ColumnName="delete" />
+                <ScalarProperty Name="amazon_alexa_skill_name" ColumnName="amazon_alexa_skill_name" />
+                <ScalarProperty Name="update_date" ColumnName="update_date" />
+                <ScalarProperty Name="creation_date" ColumnName="creation_date" />
+                <ScalarProperty Name="EmailAddress" ColumnName="EmailAddress" />
+                <ScalarProperty Name="Last_Name" ColumnName="Last_Name" />
+                <ScalarProperty Name="First_Name" ColumnName="First_Name" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="alexa_skill_authorization">
+            <EntityTypeMapping TypeName="monacos.us.Model.alexa_skill_authorization">
+              <MappingFragment StoreEntitySet="alexa_skill_authorization">
+                <ScalarProperty Name="delete" ColumnName="delete" />
+                <ScalarProperty Name="amazon_alexa_auth_redirect_uri" ColumnName="amazon_alexa_auth_redirect_uri" />
+                <ScalarProperty Name="amazon_alexa_skill_scope" ColumnName="amazon_alexa_skill_scope" />
+                <ScalarProperty Name="alexa_skill_account_id" ColumnName="alexa_skill_account_id" />
+                <ScalarProperty Name="update_date" ColumnName="update_date" />
+                <ScalarProperty Name="creation_date" ColumnName="creation_date" />
+                <ScalarProperty Name="amazon_alexa_user_id" ColumnName="amazon_alexa_user_id" />
+                <ScalarProperty Name="amazon_alexa_skill_access_token" ColumnName="amazon_alexa_skill_access_token" />
+                <ScalarProperty Name="amazon_alexa_state" ColumnName="amazon_alexa_state" />
+                <ScalarProperty Name="amazon_alexa_client_id" ColumnName="amazon_alexa_client_id" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="alexa_skill_configuration_data">
+            <EntityTypeMapping TypeName="monacos.us.Model.alexa_skill_configuration_data">
+              <MappingFragment StoreEntitySet="alexa_skill_configuration_data">
+                <ScalarProperty Name="update_date" ColumnName="update_date" />
+                <ScalarProperty Name="creation_date" ColumnName="creation_date" />
+                <ScalarProperty Name="delete" ColumnName="delete" />
+                <ScalarProperty Name="alexa_skill_account_id" ColumnName="alexa_skill_account_id" />
+                <ScalarProperty Name="Value" ColumnName="Value" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="GPS_Tracking">
+            <EntityTypeMapping TypeName="monacos.us.Model.GPS_Tracking">
+              <MappingFragment StoreEntitySet="GPS_Tracking">
+                <ScalarProperty Name="Entry_Date" ColumnName="Entry_Date" />
+                <ScalarProperty Name="Longitude" ColumnName="Longitude" />
+                <ScalarProperty Name="Latitude" ColumnName="Latitude" />
+                <ScalarProperty Name="Device_ID" ColumnName="Device_ID" />
+                <ScalarProperty Name="GPS_TrackingID" ColumnName="GPS_TrackingID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="WebSessionInformations">
+            <EntityTypeMapping TypeName="monacos.us.Model.WebSessionInformation">
+              <MappingFragment StoreEntitySet="WebSessionInformation">
+                <ScalarProperty Name="Entry_DateTime" ColumnName="Entry_DateTime" />
+                <ScalarProperty Name="WebSessionServerVariableValue" ColumnName="WebSessionServerVariableValue" />
+                <ScalarProperty Name="WebSessionServerVariableName" ColumnName="WebSessionServerVariableName" />
+                <ScalarProperty Name="WebSessionID" ColumnName="WebSessionID" />
+                <ScalarProperty Name="WebSessionInformationID" ColumnName="WebSessionInformationID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="WebSessions">
+            <EntityTypeMapping TypeName="monacos.us.Model.WebSession">
+              <MappingFragment StoreEntitySet="WebSessions">
+                <ScalarProperty Name="Entry_DateTime" ColumnName="Entry_DateTime" />
+                <ScalarProperty Name="SessionID" ColumnName="SessionID" />
+                <ScalarProperty Name="WebSessionID" ColumnName="WebSessionID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

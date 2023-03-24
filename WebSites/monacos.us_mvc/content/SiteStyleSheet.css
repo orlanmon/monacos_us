@@ -1,0 +1,952 @@
+﻿
+body {
+   
+}
+
+.mainbodycontent {
+ 
+    background-color: #fff;
+    color: #333;
+    font-size: 1.1em;
+    font-family: "Segoe UI", Verdana, Helvetica, Sans-Serif;
+    margin: 0;
+    padding: 0;
+    vertical-align:top;
+    text-align:left;
+
+}
+
+/* Page Headers */
+
+h1, h2, h3,
+h4, h5, h6 {
+    color: #ffffff;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+h1 {
+    font-size: 1.4em;
+}
+
+h2 {
+    font-size: 1.2em;
+}
+
+h3 {
+    font-size: 1.1em;
+}
+
+h4 {
+    font-size: 1.0em;
+}
+
+h5, h6 {
+    font-size: 0.9em;
+}
+
+    h5 a:link, h5 a:visited, h5 a:active {
+        padding: 0;
+        text-decoration: none;
+    }
+
+/* Page Headers */
+
+
+
+.HeaderBodyGap {
+
+    background-color: white;
+    height:10px;
+}
+
+
+
+.Header {
+
+    background-color: black;
+    height:75px;
+}
+
+
+.Footer
+{
+	background-color:black;
+	height:30px;
+	
+}
+
+.LowerFooter
+{
+	background-color:#474747;
+	height:10px;
+	
+}
+
+.Footer_CopyRight
+{
+	color:white;
+    font-family: "Segoe UI", Verdana, Helvetica, Sans-Serif;
+	font-size : 8pt;
+	font-variant:small-caps;
+	margin-left:40px;
+}
+
+
+.Footer_SessionCounter
+{
+
+
+	color:white;
+    font-family: "Segoe UI", Verdana, Helvetica, Sans-Serif;
+	font-size : 8pt;
+	font-variant:small-caps;
+	
+}
+
+
+.Footer_Quote
+{
+	color:white;
+    font-family: "Segoe UI", Verdana, Helvetica, Sans-Serif;
+	font-size : 7pt;
+	font-variant:normal;
+	margin-left:40px;
+}
+
+.Footer_DateTime
+{
+	color:white;
+    font-family: "Segoe UI", Verdana, Helvetica, Sans-Serif;
+	font-size : 8pt;
+	font-variant:small-caps;
+	margin-right:40px;
+}
+
+
+
+.Site_InputField_Error {
+
+     color: red;
+	 font-weight:normal;
+     font-family: "Segoe UI", Verdana, Helvetica, Sans-Serif;
+     font-size: 0.7em;	
+
+}
+
+
+
+
+a.Site_Link:visited
+{
+	 color: white;
+	 text-decoration:underline;
+	 font-weight:normal;
+     font-family: "Segoe UI", Verdana, Helvetica, Sans-Serif;
+     font-size: 1.1em;
+}
+
+a.Site_Link:link 
+{
+	 color: white;
+     text-decoration:underline;
+	 font-weight:normal;
+     font-family: "Segoe UI", Verdana, Helvetica, Sans-Serif;
+     font-size: 1.1em;
+}
+
+a.Site_Link:hover
+{
+	 color: yellow;
+	 text-decoration:underline;
+	 font-weight:normal;
+     font-family: "Segoe UI", Verdana, Helvetica, Sans-Serif;
+     font-size: 1.1em;
+	
+}
+
+ a.Site_Link:active
+{
+	 color: white;
+	 text-decoration:underline;
+	 font-weight:normal;
+     font-family: "Segoe UI", Verdana, Helvetica, Sans-Serif;
+     font-size: 1.1em;	
+
+}
+
+
+/* Curved Content Area Border */
+
+
+div.content_area_round_border {
+
+    border:2px solid;
+    border-radius:30px;
+    padding:10px;
+    margin: 5px;
+
+}
+
+div.page_header_content_area {
+    font-family: "Segoe UI", Verdana, Helvetica, Sans-Serif;
+    border:3px solid;
+    border-radius:20px;
+    padding:2px;
+    background-color: #C5C5C5;
+    margin: 4px;
+    box-shadow: 7px 7px 5px #888888;
+    color: #000000;
+    text-align: center;
+}
+
+
+div.page_header_content_area h2 {
+ display: table;
+ margin: 0 auto;
+}
+
+
+
+
+
+    div.page_header_content_area h1,
+    div.page_header_content_area h2,
+    div.page_header_content_area h3  {
+
+         color: #000000;
+    }
+
+
+
+
+.home_content_item_description {
+     font-size: 1.4em;	
+     font-weight:bold;
+     font-family: "Segoe UI", Verdana, Helvetica, Sans-Serif;
+     color: white;
+     text-align:left;
+}
+
+.home_content_item_post {
+    font-size: 1.0em;	
+     font-weight:bold;
+     font-family: "Segoe UI", Verdana, Helvetica, Sans-Serif;
+     color: white;
+}
+
+
+
+
+div.page_content_area {
+
+    background-color: #3D3D3D;
+    border-radius:30px;
+    margin:10px;
+    padding:20px;
+    color: white;
+    border:solid;
+    border-width:2px;
+    border-color: #000000;
+    box-shadow: 7px 7px 5px #888888;
+    
+
+}
+
+
+p {
+text-indent:15px;
+}
+
+
+
+
+
+div.page_content_area h1,
+div.page_content_area h2,
+div.page_content_area h3,
+div.page_content_area h4, 
+div.page_content_area h5, 
+div.page_content_area h6 {
+    color: #ffffff;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+div.page_content_area h1 {
+    font-size: 1.8em;
+}
+
+div.page_content_area h2 {
+    font-size: 1.5em;
+}
+
+div.page_content_area h3 {
+    font-size: 1.1em;
+}
+
+div.page_content_area h4 {
+    font-size: 1.0em;
+}
+
+div.page_content_area h5, h6 {
+    font-size: .9em;
+}
+
+
+
+/* Sign In Anchor */
+
+
+a.Header_Sign_In:visited
+{
+	 color: white;
+	 text-decoration:none;
+	 font-weight:normal;
+     font-family: "Segoe UI", Verdana, Helvetica, Sans-Serif;
+     font-size: 0.9em;
+}
+
+a.Header_Sign_In:link 
+{
+	 color: white;
+	 text-decoration:none;
+	 font-weight:normal;
+     font-family: "Segoe UI", Verdana, Helvetica, Sans-Serif;
+     font-size: 0.9em;
+}
+
+a.Header_Sign_In:hover
+{
+	 color: #c1b6b6;
+	 text-decoration:none;
+	 font-weight:normal;
+     font-family: "Segoe UI", Verdana, Helvetica, Sans-Serif;
+     font-size: 0.9em;
+	
+}
+
+a.Header_Sign_In:active
+{
+	 color: #c1b6b6;
+	 text-decoration:none;
+	 font-weight:normal;
+     font-family: "Segoe UI", Verdana, Helvetica, Sans-Serif;
+     font-size: 0.9em;
+	
+}
+
+
+/* Header Text Follow us */
+
+div.FollowUs {
+    color: white;
+    font-weight: normal;
+    font-family: "Segoe UI", Verdana, Helvetica, Sans-Serif;
+    font-size: 0.9em;
+}
+
+
+/* Menu Angular Component */
+
+#header_menu {
+
+     color: white;
+	 text-decoration:none;
+	 font-weight:normal;
+     font-family: "Segoe UI", Verdana, Helvetica, Sans-Serif;
+     font-size: 0.9em;
+
+}
+
+
+/* Sidebar Menu Angular Component */
+
+
+ #sidebar_treeview {
+ 
+       background-color: #3D3D3D;
+
+       }
+
+
+div.content_area_sidebar_treeview {
+
+    background-color: #3D3D3D;
+    border-radius:30px;
+    margin:10px;
+    padding:10px;
+    box-shadow: 7px 7px 5px #888888;
+    width:300px;
+}
+
+
+
+
+.content_area_sidebar_treeview span
+{
+	 color: white;
+	 text-decoration:none;
+	 font-weight:normal;
+     font-family: "Segoe UI", Verdana, Helvetica, Sans-Serif;
+     font-size: 1.0em;
+}
+
+
+
+
+.content_area_sidebar_treeview a:visited
+{
+	 color: white;
+	 text-decoration:none;
+	 font-weight:normal;
+     font-family: "Segoe UI", Verdana, Helvetica, Sans-Serif;
+     font-size: 0.9em;
+}
+
+.content_area_sidebar_treeview a:link 
+{
+	 color: white;
+	 text-decoration:none;
+	 font-weight:normal;
+     font-family: "Segoe UI", Verdana, Helvetica, Sans-Serif;
+     font-size: 0.9em;
+}
+
+.content_area_sidebar_treeview a:hover
+{
+	 color: white;
+	 text-decoration:none;
+	 font-weight:normal;
+     font-family: "Segoe UI", Verdana, Helvetica, Sans-Serif;
+     font-size: 0.9em;
+	
+}
+
+.content_area_sidebar_treeview a:active
+{
+	 color: white;
+	 text-decoration:none;
+	 font-weight:normal;
+     font-family: "Segoe UI", Verdana, Helvetica, Sans-Serif;
+     font-size: 0.9em;	
+
+}
+
+/* Sidebar Menu Angular Component */
+
+
+/* RSS Feed MVC Server Component  */
+
+ div.rssfeed_content_area {
+
+    background-color: #3D3D3D;
+    border-radius:30px;
+    margin:10px;
+    padding:10px;
+    box-shadow: 7px 7px 5px #888888;
+    width:300px;
+    
+}
+
+div.rssfeed_content {
+
+ display: table;
+ margin: 0 auto;
+
+ }
+
+.rssfeed_header {
+
+     color: white;
+	 font-weight:bold;
+     font-family: "Segoe UI", Verdana, Helvetica, Sans-Serif;
+     font-size: 1.4em;	
+     text-align:left;
+}
+
+
+
+.rssfeed_text {
+
+     color: white;
+	 font-weight:normal;
+     font-family: "Segoe UI", Verdana, Helvetica, Sans-Serif;
+     font-size: 0.9em;	
+
+}
+
+
+.rssfeed_text_smaller {
+
+     color: white;
+	 font-weight:normal;
+     font-family: "Segoe UI", Verdana, Helvetica, Sans-Serif;
+     font-size: 0.9em;	
+
+}
+
+
+a.rssfeed_Link:visited
+{
+	 color: white;
+	 text-decoration:none;
+	 font-weight:normal;
+     font-family: "Segoe UI", Verdana, Helvetica, Sans-Serif;
+     font-size: 0.9em;
+}
+
+a.rssfeed_Link:link 
+{
+	 color: white;
+	 text-decoration:none;
+	 font-weight:normal;
+     font-family: "Segoe UI", Verdana, Helvetica, Sans-Serif;
+     font-size: 0.9em;
+}
+
+a.rssfeed_Link:hover
+{
+	 color: white;
+	 text-decoration:underline;
+	 font-weight:normal;
+     font-family: "Segoe UI", Verdana, Helvetica, Sans-Serif;
+     font-size: 0.9em;
+	
+}
+
+ a.rssfeed_Link:active
+{
+	 color: white;
+	 text-decoration:none;
+	 font-weight:normal;
+     font-family: "Segoe UI", Verdana, Helvetica, Sans-Serif;
+     font-size: 0.9em;	
+
+
+}
+
+div.rssfeed_line {
+
+    border:solid;
+    width:95%;
+    border-width:1px;
+    opacity:.6;
+    color:white;
+
+
+}
+
+div.rssfeed_headerline {
+
+    border:solid;
+    width:222px;
+    border-width:1px;
+    opacity:.9;
+    color:white;
+
+}
+
+div.rssfeed_scrolling {
+    overflow: scroll;
+    height: 400px;
+    width: 250px;
+    scrollbar-3dlight-color: #3D3D3D;
+    scrollbar-darkshadow-color: black;
+    scrollbar-track-color: #FFFFFF;
+    overflow-x: hidden;
+    scrollbar-face-color: #3D3D3D;
+}
+
+
+
+/* RSS Feed MVC Server Component  */
+
+
+
+
+
+
+
+
+
+
+                
+
+/* Sidebar Widgets */
+
+
+div.component_content_area {
+
+    background-color: #3D3D3D;
+    border-radius:30px;
+    margin:10px;
+    padding:10px;
+    box-shadow: 7px 7px 5px #888888;
+}
+
+
+.component_header {
+
+     color: white;
+	 font-weight:bold;
+     font-family: "Segoe UI", Verdana, Helvetica, Sans-Serif;
+     font-size: 1.6em;	
+
+}
+
+
+
+.component_text {
+
+     color: white;
+	 font-weight:normal;
+     font-family: "Segoe UI", Verdana, Helvetica, Sans-Serif;
+     font-size: 1.1em;	
+
+}
+
+
+.component_text_smaller {
+
+     color: white;
+	 font-weight:normal;
+     font-family: "Segoe UI", Verdana, Helvetica, Sans-Serif;
+     font-size: 0.7em;	
+
+}
+
+
+
+ /* Components */
+
+
+ /* Web Counter */
+
+
+ div.webcounter_content_area {
+
+    background-color: #3D3D3D;
+    border-radius:30px;
+    margin:10px;
+    padding:20px;
+    box-shadow: 7px 7px 5px #888888;
+}
+
+ /* Web Counter */
+
+
+ 
+/* Sidebar Widgets */
+
+
+
+/* Content Mgmt Grid */
+
+div.content_mgmt_grid {
+
+    font-weight:normal;
+     font-family: "Segoe UI", Verdana, Helvetica, Sans-Serif;
+     font-size: 0.8em;	
+}
+
+
+.content_mgmt_grid .k-header .k-link{
+
+   text-align: center;
+
+}
+
+.content_mgmt_grid a:visited
+{
+	 color: white;
+	 text-decoration:none;
+	 font-weight:normal;
+     font-family: "Segoe UI", Verdana, Helvetica, Sans-Serif;
+     font-size: 1.1em;
+}
+
+.content_mgmt_grid a:link 
+{
+	 color: white;
+	 text-decoration:none;
+	 font-weight:normal;
+     font-family: "Segoe UI", Verdana, Helvetica, Sans-Serif;
+     font-size: 1.1em;
+}
+
+.content_mgmt_grid a:hover
+{
+	 color: white;
+	 text-decoration:none;
+	 font-weight:normal;
+     font-family: "Segoe UI", Verdana, Helvetica, Sans-Serif;
+     font-size: 1.1em;
+	
+}
+
+.content_mgmt_grid a:active
+{
+	 color: white;
+	 text-decoration:none;
+	 font-weight:normal;
+     font-family: "Segoe UI", Verdana, Helvetica, Sans-Serif;
+     font-size: 1.1em;	
+
+}
+
+/* Content Mgmt Grid */
+
+
+
+/* RAM Grid */
+
+div.ram_grid {
+
+    font-weight:normal;
+     font-family: "Segoe UI", Verdana, Helvetica, Sans-Serif;
+     font-size: 0.8em;	
+}
+
+
+.ram_grid .k-header .k-link{
+
+   text-align: center;
+
+}
+
+.ram_grid a:visited
+{
+	 color: white;
+	 text-decoration:none;
+	 font-weight:normal;
+     font-family: "Segoe UI", Verdana, Helvetica, Sans-Serif;
+     font-size: 1.1em;
+}
+
+.ram_grid a:link 
+{
+	 color: white;
+	 text-decoration:none;
+	 font-weight:normal;
+     font-family: "Segoe UI", Verdana, Helvetica, Sans-Serif;
+     font-size: 1.1em;
+}
+
+.ram_grid a:hover
+{
+	 color: white;
+	 text-decoration:none;
+	 font-weight:normal;
+     font-family: "Segoe UI", Verdana, Helvetica, Sans-Serif;
+     font-size: 1.1em;
+	
+}
+
+.ram_grid a:active
+{
+	 color: white;
+	 text-decoration:none;
+	 font-weight:normal;
+     font-family: "Segoe UI", Verdana, Helvetica, Sans-Serif;
+     font-size: 1.1em;	
+
+}
+
+/* RAM Grid */
+
+
+
+/* RS Grid */
+
+div.rs_grid {
+
+    font-weight:normal;
+     font-family: "Segoe UI", Verdana, Helvetica, Sans-Serif;
+     font-size: 0.8em;	
+}
+
+
+.rs_grid .k-header .k-link{
+
+   text-align: center;
+
+}
+
+.rs_grid a:visited
+{
+	 color: white;
+	 text-decoration:underline;
+	 font-weight:normal;
+     font-family: "Segoe UI", Verdana, Helvetica, Sans-Serif;
+     font-size: 1.1em;
+}
+
+.rs_grid a:link 
+{
+	 color: white;
+	 text-decoration:underline;
+	 font-weight:normal;
+     font-family: "Segoe UI", Verdana, Helvetica, Sans-Serif;
+     font-size: 1.1em;
+}
+
+.rs_grid a:hover
+{
+	 color: yellow;
+	 text-decoration:underline;
+	 font-weight:normal;
+     font-family: "Segoe UI", Verdana, Helvetica, Sans-Serif;
+     font-size: 1.1em;
+	
+}
+
+.rs_grid a:active
+{
+	 color: white;
+	 text-decoration:underline;
+	 font-weight:normal;
+     font-family: "Segoe UI", Verdana, Helvetica, Sans-Serif;
+     font-size: 1.1em;	
+
+}
+
+/* RS Grid */
+
+
+/* Home Automation */
+
+.ScrollFrame
+{
+	overflow-x : auto;
+	overflow-y: scroll;
+	margin-left: 15px;
+	float: none;
+ 	height: 70%;
+ 	width:92%;
+	border-style : solid;
+	border-width : 1px;
+	border-color: black;
+	padding-top : 10px;
+	padding-bottom : 10px;
+}	
+
+
+
+.table_home_automation
+{
+    padding: 5px;
+    border-spacing:5px;
+    border-width : 2px;
+	border-style : solid;
+	border-color: black;
+
+}
+
+.table_home_automation tr
+{
+    padding: 5px;
+    border-spacing:5px;
+    border-width : 2px;
+	border-style : solid;
+	border-color: black;
+
+}
+
+.table_home_automation td
+{
+    padding: 5px;
+    border-spacing:5px;
+    border-width : 2px;
+	border-style : solid;
+	border-color: black;
+}
+
+.tableheader_home_automation 
+{
+	background : #474747;
+	color : white;
+	font-weight : bold;
+	text-align : center;
+	border-width : 2px;
+	border-style : solid;
+	border-color: black;
+	font-weight: normal;
+    font: Trebuchet MS, Verdana;
+    font-size : 12pt;
+    
+}
+
+
+.tableroweven_home_automation {
+	background : #EFEFEF;
+	color : #000000;
+	padding-left : 3px;
+	padding-right : 3px;
+	font-weight: normal;
+    font: Trebuchet MS, Verdana;
+	font-size : 8pt;
+     border-width : 2px;
+	border-style : solid;
+	border-color: black;
+
+}
+
+.tablerowodd_home_automation {
+	background : #DFDFDF;
+	color : #000000;
+	padding-left : 3px;
+	padding-right : 3px;
+	font: Trebuchet MS, Verdana;
+	font-size : 8pt;
+     border-width : 2px;
+	border-style : solid;
+	border-color: black;
+	
+
+}
+
+.tablecolumn_home_automation {
+	background :  black;
+	color : #FFFFFF;
+	font-weight : bold;
+	text-align : center;
+	font: Trebuchet MS, Verdana;
+	font-size : 12pt;
+}
+
+.tablecelloff_home_automation {
+	background : #DFDFDF;
+	color : #000000;
+     border-width : 2px;
+	border-style : solid;
+	border-color: black;
+}
+
+.tablecellon_home_automation {
+	color : #000000;
+	background : #FFFFCE;
+     border-width : 2px;
+	border-style : solid;
+	border-color: black;
+}
+
+
+.tablecellunknown_home_automation {
+	background : #000000;
+	color : #FFFFFF;
+     border-width : 2px;
+	border-style : solid;
+	border-color: black;
+}
+
+
+.tablecelldim_home_automation {
+	background : #E0E0B9;
+	color : #000000;
+     border-width : 2px;
+	border-style : solid;
+	border-color: black;
+}
+
+/* Home Automation */

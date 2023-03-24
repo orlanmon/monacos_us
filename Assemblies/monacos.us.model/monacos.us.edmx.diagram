@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="df68af03799f4822984a0fdae6511314" Name="Diagram1">
+        <EntityTypeShape EntityType="monacos.us.Model.Content" Width="1.5" PointX="2" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="monacos.us.Model.ContentArea" Width="1.5" PointX="2.625" PointY="4.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="monacos.us.Model.Navigation_Items" Width="1.5" PointX="5.25" PointY="1.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="monacos.us.Model.Navigation_Types" Width="2.125" PointX="5" PointY="7.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="monacos.us.Model.NavigationItem_ResourceRole_Xref" Width="2.875" PointX="7.75" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="monacos.us.Model.Resource" Width="1.5" PointX="0.75" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="monacos.us.Model.Resource_Roles" Width="1.5" PointX="2.75" PointY="9.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="monacos.us.Model.sysdiagram" Width="1.5" PointX="9.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="monacos.us.Model.User_Role_Xref" Width="1.5" PointX="9.25" PointY="3.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="monacos.us.Model.User" Width="1.5" PointX="9.25" PointY="5.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="monacos.us.Model.WebSessionInformation" Width="1.5" PointX="10.375" PointY="10.75" />
+        <EntityTypeShape EntityType="monacos.us.Model.WebSession" Width="1.5" PointX="5.375" PointY="10.75" />
+        </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

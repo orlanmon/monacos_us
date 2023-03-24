@@ -1,0 +1,213 @@
+﻿<script>
+
+$(document).ready(function(){
+
+    //  JSON Data POST
+     
+    $("#asyc_call-button_1").click( function () {
+
+        // put your default event here
+
+        var RestServiceEndpoint = "http://localhost/monacos_us_mvc/Test/APICallOne";
+
+        $.ajax({
+            data: { 'Param1': 22, 'Param2' : 23  },
+            type: "post",
+            cache: false,
+            url: RestServiceEndpoint,
+            async: false,
+            timeout: 30000,
+            error: function (xhr, textStatus, errorThrown) {
+
+                alert("Error: " + textStatus);
+
+            },
+            success: function (result) {
+
+
+                alert("Success: " + result);
+
+
+            }
+        });
+
+    });
+
+
+    // Route Based Data Using Default Route 
+
+    $("#asyc_call-button_2").click(function () {
+
+        // put your default event here
+
+        var RestServiceEndpoint = "http://localhost/monacos_us_mvc/Test/APICallTwo/22";
+
+        $.ajax({
+            type: "GET",
+            cache: false,
+            url: RestServiceEndpoint,
+            async: false,
+            timeout: 30000,
+            error: function (xhr, textStatus, errorThrown) {
+
+                alert("Error: " + textStatus);
+
+            },
+            success: function (result) {
+
+
+                alert("Success: " + result);
+
+
+            }
+        });
+
+    });
+
+    // Route Based Data Using Newly Configured Route
+
+    $("#asyc_call-button_3").click(function () {
+
+        // put your default event here
+
+        var RestServiceEndpoint = "http://localhost/monacos_us_mvc/Test/APICallThree/1/2/3";
+
+        $.ajax({
+            type: "GET",
+            cache: false,
+            url: RestServiceEndpoint,
+            async: false,
+            timeout: 30000,
+            error: function (xhr, textStatus, errorThrown) {
+
+                alert("Error: " + textStatus);
+
+            },
+            success: function (result) {
+
+
+                alert("Success: " + result);
+
+
+            }
+        });
+
+    });
+
+
+    // Query String Posted Data
+
+    $("#asyc_call-button_4").click(function () {
+
+        // put your default event here
+
+        var RestServiceEndpoint = "http://localhost/monacos_us_mvc/Test/APICallFour?Param1=1&Param2=2&Param3=3";
+
+        $.ajax({
+            type: "GET",
+            cache: false,
+            url: RestServiceEndpoint,
+            async: false,
+            timeout: 30000,
+            error: function (xhr, textStatus, errorThrown) {
+
+                alert("Error: " + textStatus);
+
+            },
+            success: function (result) {
+
+
+                alert("Success: " + result);
+
+
+            }
+        });
+
+    });
+
+
+    // Get Call With Query String Parameters and get JSON Response
+
+    $("#asyc_call-button_5").click(function () {
+
+        // put your default event here
+
+        var RestServiceEndpoint = "http://localhost/monacos_us_mvc/Test/APICallFive?Param1=1&Param2=2&Param3=3";
+
+        $.ajax({
+            type: "GET",
+            contentType: "application/json; charset=utf-8",  // content type sent to server
+            dataType: "json",         //Expected data format from server
+            cache: false,
+            url: RestServiceEndpoint,
+            async: false,
+            timeout: 30000,
+            error: function (xhr, textStatus, errorThrown) {
+
+                alert("Error: " + textStatus);
+
+            },
+            success: function (result) {
+
+
+                alert("Success: " + result.status);
+
+
+            }
+        });
+
+    });
+
+
+
+});
+
+</script>
+
+
+
+<form method="post" action="http://localhost/monacos_us_mvc/Test/">
+
+    <div class="form-horizontal">
+        <h4>ContactData_Model</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+        <div class="form-group">
+            <div class="col-md-10">
+
+                <div class=""control-label col-md-2">Param1</div><input id="Param1" name="Param1"  class="form-control"/>
+                <div class="" control-label col-md-2">Param2</div><input id="Param2" name="Param2" class="form-control" />
+
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+
+</form>
+
+
+<br />
+ 
+<button id="asyc_call-button_1" value="Submit" class="btn btn-default" title="Async One Submit"></button>
+
+<br />
+
+<button id="asyc_call-button_2" value="Submit" class="btn btn-default" title="Async Two Submit"></button>
+
+<br />
+
+<button id="asyc_call-button_3" value="Submit" class="btn btn-default" title="Async Three Submit"></button>
+
+<br />
+
+<button id="asyc_call-button_4" value="Submit" class="btn btn-default" title="Async Four Submit"></button>
+
+<br />
+
+<button id="asyc_call-button_5" value="Submit" class="btn btn-default" title="Async Four Submit"></button>

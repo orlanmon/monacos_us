@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="5b006cf1-a005-4668-acf5-ef98bc65f259" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://192.168.0.100:5000/HomeAutomationService/Service.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="Service.xsd" MetadataType="Schema" ID="272b8c75-b3e8-4ab9-8c42-c84e6f071357" SourceId="1" SourceUrl="http://domain2008.monacos.home:5000/HomeAutomationService/Service.svc?xsd=xsd1" />
+    <MetadataFile FileName="Service1.xsd" MetadataType="Schema" ID="956ecd15-5ffd-4f8d-bb66-158d8564e591" SourceId="1" SourceUrl="http://domain2008.monacos.home:5000/HomeAutomationService/Service.svc?xsd=xsd0" />
+    <MetadataFile FileName="HomeAutomationService.wsdl" MetadataType="Wsdl" ID="6c9b4145-3df5-4e04-8d66-0b6cf57afd29" SourceId="1" SourceUrl="http://domain2008.monacos.home:5000/HomeAutomationService/Service.svc?wsdl" />
+    <MetadataFile FileName="Service.disco" MetadataType="Disco" ID="748f9f21-79b5-43ea-90c0-e7227dd7435d" SourceId="1" SourceUrl="http://domain2008.monacos.home:5000/HomeAutomationService/Service.svc?disco" />
+    <MetadataFile FileName="Service2.xsd" MetadataType="Schema" ID="d58aee29-5a65-4f7e-870d-70ccfd961e72" SourceId="1" SourceUrl="http://domain2008.monacos.home:5000/HomeAutomationService/Service.svc?xsd=xsd2" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

@@ -1,0 +1,100 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+
+<div ng-controller="contenteditor_page_controller">
+    <table style="width:98%;">
+        <tr>
+            <td align="center">
+
+                <div class="content_area_round_border">
+
+                    <div class="page_header_content_area" style="width:500px;">
+
+                        <h3>Content Editor - Monaco Software Solutions</h3>
+
+
+                    </div>
+
+
+                    <br />
+
+
+                    <div class="content_area_round_border">
+
+
+
+
+
+                        <form action="" method="POST" name="form_login">
+
+
+                            <table>
+                                <tr>
+                                    <td colspan="2" style="padding:10px;">
+                                        <h3 id="content_type_description">{{content_type_description}}</h3>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+
+
+                                        <table>
+                                            <tr>
+                                                <td>Description:</td>
+                                                <td>
+                                                    <input type="text" id="input_content_description" ng-model="Content_Description" required />
+                                                    <span class="Site_InputField_Error" ng-show="form_Page.input_content_description.$error.required">Required!</span>
+                                                </td>
+                                            </tr>
+
+                                            <tr>
+                                                <td>Publish Date:</td>
+                                                <td>
+                                                    <input type="text" id="input_content_publishdate" ng-model="Content_PublishDate" required />
+                                                    <span class="Site_InputField_Error" ng-show="form_Page.input_content_publishdate.$error.required">Required!</span>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>Expiration Date:</td>
+                                                <td>
+                                                    <input type="text" id="input_content_expirationdate" ng-model="Content_ExpirationDate" />
+                                                    <span class="Site_InputField_Error" ng-show="form_Page.Content_ExpirationDate.$error.required">Required!</span>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                    <td style="vertical-align:top">
+                                        <table>
+                                            <tr>
+                                                <td style="text-align:center;">
+                                                    <input type="button" id="button_content_update_submit" ng-click="UpdateContent();" value="Update" title="Update Content" />
+                                                    <input type="button" id="button_content_add_submit" ng-click="AddContent();" value="Add" title="Add Content" />
+                                                </td>
+                                                <td><input type="button" id="button_content_delete_submit" ng-click="DeleteContent();" value="Delete" title="Delete Content" /></td>
+
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </table>
+
+                        </form>
+
+
+                        <br />
+                        <br />
+                        <br />
+                        <div class="k-content">
+
+                            <textarea id="content_editor" rows="10" cols="30" style="width:100%;height:400px;z-index:20000;"></textarea>
+
+                        </div>
+                    </div>
+                </div>
+            </td>
+        </tr>
+    </table>
+</div>

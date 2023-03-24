@@ -1,0 +1,296 @@
+﻿<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" ng-app="monacos.us">
+<head>
+    <title></title>
+
+    
+
+    <!-- JQuery Start -->
+    <script src="~/scripts/lib/jquery/jquery-3.2.0/jquery-3.2.0.min.js" type="text/javascript"></script>
+    <!-- JQuery Start -->
+    <!-- Angular Start -->
+
+
+    <script src="~/scripts/lib/angular/angular-1.6.3/angular.min.js"></script>
+
+    <!-- Angular End -->
+    <!-- JQuery UI Start -->
+
+    <script src="~/scripts/lib/jquery-ui/jquery-ui-1.12.1/jquery-ui.min.js" type="text/javascript"></script>
+    <link href="~/content/jquery-ui-1.12.1/jquery-ui.css" rel="stylesheet" />
+
+    <!-- JQuery UI End -->
+    <!-- Kendo UI Start -->
+    <link href="~/content/kendoui/kendoui-v2017.1.223/kendo.common.min.css" rel="stylesheet" />
+    <link href="~/content/kendoui/kendoui-v2017.1.223/kendo.rtl.min.css" rel="stylesheet" />
+    <link href="~/content/kendoui/kendoui-v2017.1.223/kendo.default.min.css" rel="stylesheet" />
+    <link href="~/content/kendoui/kendoui-v2017.1.223/kendo.black.min.css" rel="stylesheet" />
+
+
+    <script src="~/scripts/lib/kendoui/kendoui-v2017.1.223/kendo.web.min.js"></script>
+    
+    <script src="~/scripts/lib/kendoui/kendoui-v2017.1.223/kendo.all.min.js"></script>
+
+    <!-- Kendo UI End -->
+    <!-- JSSOR Start -->
+
+    <script type="text/javascript" src="~/scripts/lib/jssor/jssor.core.js"></script>
+    <script type="text/javascript" src="~/scripts/lib/jssor/jssor.utils.js"></script>
+    <script type="text/javascript" src="~/scripts/lib/jssor/jssor.slider.js"></script>
+
+    <!-- JSSOR End -->
+    <!-- Site Includes Start -->
+
+    
+
+    <link href="~/content/SiteStyleSheet.css" rel="stylesheet" />
+
+
+    <!-- These will all be included in site min js generated in GULP -->
+
+
+    <script src="~/angular_app/all.min.js" type="text/javascript"></script>
+
+    
+
+
+    <!-- BootStrap -->
+
+    <link href="~/content/bootstrap-3.3.7/bootstrap.css" rel="stylesheet" type="text/css" />
+
+
+    <script src="~/scripts/lib/bootstrap-3.3.7/bootstrap.min.js"></script>
+
+    
+
+   
+    <!-- Site Includes End -->
+    <!-- Page Specific Includes Start -->
+    
+    @RenderSection("Page_Header_Include", false)
+
+    <!-- Page Specific Includes End -->
+
+
+</head>
+<body>
+
+    <div ng-controller="site_controller">
+
+        <table style="width:100%; height:100%; border:none;padding:0px; border-spacing:0px;">
+            <tr>
+                <td colspan="2">
+                    <table style="width:100%;height:125px; border:none;padding:0px; border-spacing:0px;" class="Header">
+                        <tr>
+                            <td><img src="~/images/MonacosUsHeader.jpg" title="Monacos Software Solutions" /></td>
+                            <td></td>
+                            <td style="vertical-align:bottom;text-align:right;">
+
+
+
+                                <table style="width:100%; height:100%; border:none;padding:0px; border-spacing:0px;">
+
+                                    <tr>
+                                        <td></td>
+                                        <td colspan="2" style="text-align:left;">
+                                           
+                                            <!-- Login Status Display Component -->
+                                            <login-status-component></login-status-component>
+
+                                        </td>
+                                    </tr>
+
+                                    <tr><td colspan="3">&nbsp;</td></tr>
+
+                                    <tr>
+
+                                        <td style="vertical-align:middle; text-align:right;">
+                                            <div class="FollowUs">Follow us&nbsp;&nbsp;</div>
+                                        </td>
+                                        <td style="text-align:left;">
+                                            <a id="a_Follow_Facebook" href="https://www.facebook.com/monacosoftwaresolutions" target="_blank"><img src="~/images/Facebook.png" title="Facebook" width="30" height="30" /></a>
+
+                                            <a id="a_Follow_Twitter" href="https://twitter.com/monacosoftware" target="_blank"><img src="~/images/Twitter.png" title="Twitter" width="30" height="30" /></a>
+                                        </td>
+                                    </tr>
+                                </table>
+
+
+                            </td>
+                        </tr>
+                        <tr><td colspan="3">
+                            
+                                <!-- Main Menu Component -->
+                                <menu-component></menu-component>
+                            
+                        </td></tr>
+                    </table>
+                </td>
+            </tr>
+            <tr class="HeaderBodyGap"><td colspan="2"></td></tr>
+            <tr>
+                <td  style="vertical-align:top;width:250px;">
+
+                    <table style="height:100%;width:100%; border:0;padding:0px; border-spacing:0px;">
+                        <!-- -->
+                        <tr>
+                            <td style="text-align:left;vertical-align:top;">
+
+
+                                <menu-sidebar-component></menu-sidebar-component>
+
+                         
+                                <!-- RSS Feed  Start -->
+
+                                <!-- Server Side Content Component -->
+
+                                @{
+                                    Html.RenderAction("Index", "RSS_Feed_Component", new { Id="msdn_rss",  RSSUrl = "https://docs.microsoft.com/en-us/msdn-files/feeds/msdn/en-us/magazine/rss.xml", Title= "MSDN News" });
+                                    
+                                }
+
+                                
+
+                                <!-- Server Side Content Component -->
+
+                                <!-- RSS Feed End -->
+
+                                <!-- RSS Feed  Start  -->
+                            
+                                <!-- Server Side Content Component -->
+
+                                
+                                @{
+                                    Html.RenderAction("Index", "RSS_Feed_Component", new { Id = "vs_magazine", RSSUrl = "https://visualstudiomagazine.com/rss-feeds/practical-net.aspx", Title = "Visual Studio Magazine" });
+                               
+
+                                }
+
+                                <!-- Server Side Content Component -->
+
+                               
+                                <!-- RSS Feed End -->
+
+
+                                <!--  Web Counter Start -->
+                                <div class="webcounter_content_area">
+
+                                    <div style="background-color: black; box-shadow: 5px 5px 0px #242323">
+
+                                        <script type="text/javascript" src="//ra.revolvermaps.com/0/0/1.js?i=05pjy03ica6&amp;m=7&amp;s=220&amp;c=e63100" async="async"></script>
+
+                                    </div>
+
+                                </div>
+                                <!--  Web Counter End -->
+                            </td>
+                        </tr>
+
+                    </table>
+
+
+
+                </td>
+                <td class="mainbodycontent">
+                           
+                    <div>
+                        @RenderBody()
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td class="Footer" colspan="2">
+
+
+                    <!-- Footer Content -->
+
+                    <table style="width:100%;border:0px; padding:0px;">
+                        <tr>
+
+                            <td align="left">
+
+                                <div class="Footer_CopyRight">Site &copy; 2017 Monaco Software Solutions</div>
+
+                            </td>
+
+                            <td align="center">
+
+                                <!-- Site Session Counter -->
+
+
+
+                            </td>
+
+                            <td align="right">
+
+                                <date-Time-Display-Component></date-Time-Display-Component>
+
+                            </td>
+
+                        </tr>
+                    </table>
+
+
+                    <!-- Footer Content End -->
+
+
+
+
+
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2" class="LowerFooter">
+
+                    <!-- Footer Content -->
+                    <!-- Lower Footer Content End -->
+
+
+                </td>
+            </tr>
+        </table>
+
+    </div>
+
+
+
+    <script id="notification_popup_dialog" type="text/x-kendo-template">
+        <table style="width:200px; height:100px;">
+            <tr>
+                <td>
+                    <div style="color:white;text-align:center;" id="notification_msg">Notification Message</div>
+                </td>
+            </tr>
+        </table>
+    </script>
+
+    <script id="notification_dialog" type="text/x-kendo-template">
+        <table style="width:200px; height:100px;">
+            <tr>
+                <td>
+                    <div style="color:white;text-align:center;" id="notification_msg">Notification Message</div>
+                </td>
+            </tr>
+            <tr>
+                <td style="text-align:center;">
+                    <button class="ok-button k-button">OK</button>
+                </td>
+            </tr>
+        </table>
+    </script>
+
+
+    <script id="exception_dialog" type="text/x-kendo-template">
+        <table style="width:200px; height:100px;">
+            <tr><td><div style="color:red;text-align:center;" id="exception_src">Exception Source</div>
+            <tr>
+                <td>
+                    <div style="color:red;text-align:center;" id="exception_msg">Exception Message</div>
+                </td>
+            </tr>
+        </table>
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,120 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+@section Page_Header_Include
+{
+
+<script src="~/scripts/lib/highslide/highslide-full.js"></script>
+<link href="~/scripts/lib/highslide/highslide.css" rel="stylesheet" />
+
+}
+
+
+
+
+    <table style="width:98%;">
+        <tr>
+            <td align="center">
+                <div class="content_area_round_border">
+
+                    <div class="page_header_content_area" style="width:500px;">
+
+                        <h3>Photo Media - Monacos Software Solutions</h3>
+
+
+                    </div>
+
+                    <br />
+
+
+                    <div class="page_content_area">
+
+
+                        <div class="highslide-gallery">
+
+                            <div ng-controller="mediaphoto_page_controller">
+
+
+                               
+                                <div style="margin-top:20px;">
+                                    <a href="~/images/SitePhotos/RaspberryPI_B.jpg" class="Site_Link" onclick="return hs.expand(this)">
+
+                                        <img src="~/images/SitePhotos/RaspberryPI_B_tn.jpg" alt="Raspberry PI B" title="Click to enlarge" />
+
+
+                                    </a>
+
+                                    <div style="margin-top:10px; left:20px;">Raspberry PI B</div>
+
+
+                                    <div class="highslide-caption">
+                                        Raspberry PI B
+                                    </div>
+                                </div>                     
+                                            
+                                <div style="margin-top:20px;" >
+                                    <a href="~/images/SitePhotos/Azure_IoT_System.jpg" class="Site_Link" onclick="return hs.expand(this)">
+
+                                        <img src="~/images/SitePhotos/Azure_IoT_System_tn.jpg" alt="Azure IoT System Prototype" title="Click to enlarge" />
+
+
+                                    </a>
+
+                                    <div style="margin-top:10px; left:20px;">Azure IoT System Prototype</div>
+
+
+                                    <div class="highslide-caption">
+                                        Azure IoT System Prototype
+                                    </div>
+
+                                </div>
+
+                                <div style="margin-top:20px;" >
+                                    <a href="~/images/SitePhotos/AnalogDigitalConverter.jpg" class="Site_Link" onclick="return hs.expand(this)">
+
+                                        <img src="~/images/SitePhotos/AnalogDigitalConverter_tn.jpg" alt="Analog to Digital Converter" title="Click to enlarge" />
+
+
+                                    </a>
+
+                                    <div style="margin-top:10px; left:20px;">Analog to Digital Converter</div>
+
+
+                                    <div class="highslide-caption">
+                                        Analog to Digital Converter
+                                    </div>
+
+                                </div>
+
+                                <div style="margin-top:20px;">
+                                    <a href="~/images/SitePhotos/RaspberryPI_B_TouchScreen.jpg" class="Site_Link" onclick="return hs.expand(this)">
+
+                                        <img src="~/images/SitePhotos/RaspberryPI_B_TouchScreen_tn.jpg" alt="Device with Touch Screen & Case" title="Click to enlarge" />
+
+
+                                    </a>
+
+                                    <div style="margin-top:10px; left:20px;">Device Touch Screen & Case</div>
+
+
+                                    <div class="highslide-caption">
+                                        Device Touch Screen & Case
+                                    </div>
+
+                                </div>
+
+
+                            </div>
+
+
+                            </div> 
+
+                    </div>
+
+                </div>
+            </td>
+        </tr>
+    </table>
+

@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="Monacos.us">
+  <DataContextMoniker Name="/Monacos_usDataContext" />
+  <nestedChildShapes>
+    <classShape Id="e38fd5b3-f21d-4e98-bfb6-f8e4587c7326" absoluteBounds="1.875, 4.5, 2, 1.1939925130208333">
+      <DataClassMoniker Name="/Monacos_usDataContext/ContentArea" />
+      <nestedChildShapes>
+        <elementListCompartment Id="a9c1579c-2210-4b6c-b1ed-1e05a958d45b" absoluteBounds="1.8900000000000001, 4.96, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="dabeda90-83b1-4a14-bc11-39dbfdce7d9b" absoluteBounds="3, 1.875, 2, 2.3478011067708335">
+      <DataClassMoniker Name="/Monacos_usDataContext/Content" />
+      <nestedChildShapes>
+        <elementListCompartment Id="78bd3f0c-76d0-4bc4-9d0f-0c025e1759fe" absoluteBounds="3.015, 2.335, 1.9700000000000002, 1.7878011067708335" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="b35cf763-2280-4429-b81b-aca504e4a30d" absoluteBounds="0.5, 1.125, 2, 1.7708968098958331">
+      <DataClassMoniker Name="/Monacos_usDataContext/GPS_Tracking" />
+      <nestedChildShapes>
+        <elementListCompartment Id="17f550d6-32a1-454a-a6bf-a541b68e123b" absoluteBounds="0.51500000000000012, 1.585, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>

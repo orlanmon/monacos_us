@@ -1,0 +1,40 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<div ng-controller="homecontent_page_controller">
+
+        <table style="width:98%;">
+            <tr>
+                <td align="center">
+
+                    <div class="content_area_round_border">
+
+
+
+                        <div class="page_header_content_area" style="width:500px;">
+
+                            <h2>Home Content Editor - Monaco Software Solutions</h2>
+
+                        </div>
+
+                        <br />
+
+                        <div class="content_area_round_border">
+                            <h3>Home Page Content Items</h3>
+                            <div style="text-align:left;margin-left:2px;margin-bottom:10px;"><input type="button" id="button_add_contentarea" name="button_add_contentarea" value="New" style="width:50px;" ng-click="NavigateContentAdd();" /></div>
+
+                            <div class="k-content">
+
+                                <div id="contentarea_grid" class="content_mgmt_grid"></div>
+
+                            </div>
+                        </div>
+
+
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </div>

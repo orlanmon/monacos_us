@@ -1,0 +1,51 @@
+﻿
+<div id="contact_dlg_two" name="contact_dlg_two" style="visibility:hidden">
+
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+
+                <h4 class="modal-title">Contact - Monaco Software Solutions</h4>
+            </div>
+            <div class="modal-body">
+                <form id="contact_dlg_two_form" class='form-horizontal' ng-submit="ContactDialogTwo_Submit()">
+                    
+                        <h4>Enter Contact Message</h4>
+                        <hr/>
+
+                         <div class="form-group">
+
+                            <div class="control-label col-md-2">Subject</div>
+                            <div class="col-md-9">
+
+                                <input id="contact_subject" name="contact_subject" class="form-control" ng-model="ContactData.subject" required />
+                                <span ng-show="contact_dlg_two_form.contact_subject.$touched && contact_dlg_two_form.contact_subject.$invalid">First Name is required.</span>
+
+                            </div>
+                        </div>
+                        
+                            <div class="form-group">
+                                <div class="control-label col-md-2">Message</div>
+                                <div class="col-md-9">
+                                    <textarea class="form-control" id="content_msg" name="content_msg" ng-model="ContactData.msg" required rows="3" placeholder="Contact Message Here"></textarea>
+                                    <span ng-show="contact_dlg_two_form.content_msg.$touched && contact_dlg_two_form.content_msg.$invalid">Message is required.</span>
+                                </div>
+                            </div>
+
+                        <div class="form-group">
+                            <div class="col-md-6">
+                                <input type="submit" value="Previous" class="btn btn-default btn-success" id="btnSubmitPrevious" ng-click="ContactDialogTwo_Previous()" />
+                                <input type="submit" value="Submit" class="btn btn-default"  ng-disabled="contact_dlg_two_form.$invalid" />
+                                <input type="submit" value="Cancel" class="btn btn-default" data-dismiss="modal" />
+
+                            </div>
+                        </div>
+
+
+                </form>
+            </div>
+        </div>
+    </div>
+ </div>
